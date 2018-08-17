@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="alumno/includes/heads :: header"></head>
+	<body>
+		<div class="container-pz">
+			<header th:replace="alumno/includes/header :: header-menu"></header>
+			<div th:replace="alumno/includes/header :: header-movil"></div>
+			<div class="border-back">
+				<img src="http://www.educacionpersonal.com/edupersonal/theme/image.php/campus/theme/1528969453/background" class="img-wall"/>
+			</div>
+
+      <div class="section">
+        <div class="container-alumno" style="height: -webkit-fill-available;">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="menu-alumno">
+                <ul>
+                  <li><a href="perfil.html">Mi perfil</a></li>
+                  <li><a href="mis-cursos.html">Mis cursos</a></li>
+                  <li class="active"><a href="mis-pagos.html">Mis pagos</a></li>
+                  <li><a href="#" onclick="logout('./');">Salir</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="menu-alumno">
+                <div class="row">
+                  <div class="col-md-12">
+                    <table class="table">
+                    	<thead>
+                    		<tr>
+                    			<td>Curso</td>
+													<td>Precio</td>
+													<td>Fecha</td>
+													<td>Ficha</td>
+                    		</tr>
+                    	</thead>
+											<tbody>
+												<tr>
+													<td>{{ Nombre curso }}</td>
+													<td>{{ Precio }}</td>
+													<td>{{ Fecha }}</td>
+													<td><a href="#">Descargar</a></td>
+												</tr>
+                        <tr>
+													<td>{{ Nombre curso }}</td>
+													<td>{{ Precio }}</td>
+													<td>{{ Fecha }}</td>
+													<td><a href="#">Descargar</a></td>
+												</tr>
+                        <tr>
+													<td>{{ Nombre curso }}</td>
+													<td>{{ Precio }}</td>
+													<td>{{ Fecha }}</td>
+													<td><a href="#">Descargar</a></td>
+												</tr>
+                        <tr>
+													<td>{{ Nombre curso }}</td>
+													<td>{{ Precio }}</td>
+													<td>{{ Fecha }}</td>
+													<td><a href="#">Descargar</a></td>
+												</tr>
+                        <tr>
+													<td>{{ Nombre curso }}</td>
+													<td>{{ Precio }}</td>
+													<td>{{ Fecha }}</td>
+													<td><a href="#">Descargar</a></td>
+												</tr>
+                        <tr>
+													<td>{{ Nombre curso }}</td>
+													<td>{{ Precio }}</td>
+													<td>{{ Fecha }}</td>
+													<td><a href="#">Descargar</a></td>
+												</tr>
+                        <tr>
+													<td>{{ Nombre curso }}</td>
+													<td>{{ Precio }}</td>
+													<td>{{ Fecha }}</td>
+													<td><a href="#">Descargar</a></td>
+												</tr>
+                        <tr>
+													<td>{{ Nombre curso }}</td>
+													<td>{{ Precio }}</td>
+													<td>{{ Fecha }}</td>
+													<td><a href="#">Descargar</a></td>
+												</tr>
+											</tbody>
+                    </table>
+        					</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer id="footer" style="    display: contents;position: fixed;left: 0px;bottom: 0px;width: 100%;">
+				<div id="bottom-footer" class="section">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<span class="copyright">
+									Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<button title="Back to top" class="scroll">
+        		<span class="arrow-up fas fa-angle-up"></span>
+    		</button>
+		</div>
+		<div th:replace="alumno/includes/script :: scripts"></div>
+		<script src="assets/js/funtions.js"></script>
+		<script type="text/javascript" src="assets/js/errores.js"></script>
+	</body>
+</html>

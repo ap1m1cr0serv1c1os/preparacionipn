@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Iniciar sesión</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" th:href="@{/alumno/css/bootstrap4/bootstrap.min.css}">
+		<link th:href="@{/alumno/css/fontawesome/css/fontawesome-all.css}" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" th:href="@{/alumno/scss/main-client.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/alumno/css/responsive.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/alumno/css/errores.css}">
+	</head>
+	<body>
+		<div class="login-page">
+			<div class="container">
+				<form class="form-login" method="post">
+					<h2 class="form-login-heading">Bienvenido</h2>
+					<div class="login-img"><img th:src="@{/alumno/img/if_user_925901.png}" alt=""></div>
+					<div class="login-wrap">
+						<br>
+						<fb:login-button class="btn btn-theme btn-block" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+						<div id="status"></div>
+						<hr>
+						<div class="otras-opciones">
+							<div class="item-btn"><input onclick="location.href='/';" class="btn btn-info btn-block" type="button" value="Inicio"/></div>
+							<div class="item-btn"><input  data-toggle="modal" data-target='#registro' class="btn btn-info btn-block" type="button" value="Registrarse"/></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="modal fade modal-danger" id="registro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title"></h4>
+					</div>
+					<div class="modal-body" role="main">
+						<table align="center" class="table">
+							<tr valign="baseline">
+
+								<td>
+									<form class="form">
+										<div class="panel panel-default">
+											<div class="panel-body">
+												<div class="form-group fadeInDown" data-wow-delay="0.5s">
+													<input type="text" id="strnombre" style="display: inline;" class="form-control-text" name="strnombre" required />
+													<label class="form-label" for="strnombre"><span class="form-label-content">Nombre</span></label>
+												</div>
+												<div class="form-group fadeInDown" data-wow-delay="0.5s">
+													<input type="email" id="stremail"  style="display: inline;" class="form-control-text" name="stremail" required />
+													<label class="form-label" for="stremail"><span class="form-label-content">Correo</span></label>
+												</div>
+												<div class="form-group fadeInDown" data-wow-delay="0.5s">
+													<input type="tel" id="strtelefono" maxlength="10" pattern="/d*" style="display: inline;" class="form-control-text" name="strtelefono" required />
+													<label class="form-label" for="strtelefono"><span class="form-label-content">Teléfono</span></label>
+												</div>
+											</div>
+											<div style="text-align: right;">
+												<h5>Vincular con facebook</h5>
+												<fb:login-button scope="public_profile,email" onlogin="checkLoginStateReference();"></fb:login-button>
+												<div id="response"></div>
+											</div>
+										</div>
+										<div class="form-group">
+											<input type="button" id="register-al" style="display:none;" class="btn btn-primary align-right" value="Registrarse"/>
+										</div>
+									</form>
+									<div id="mensaje"></div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script th:src="@{/alumno/js/jquery-3.2.1.min.js}"></script>
+		<script th:src="@{/alumno/js/jquery.backstretch.min.js}"></script>
+		<script th:src="@{/alumno/css/bootstrap4/popper.js}"></script>
+		<script th:src="@{/alumno/css/bootstrap4/bootstrap.min.js}"></script>
+		<script th:src="@{/alumno/scrollmagic/ScrollMagic.min.js}"></script>
+		<script type="text/javascript" th:src="@{/alumno/js/errores.js}"></script>
+		<script type="text/javascript" src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+		<script th:src="@{/alumno/js/sesiones.js}"></script>
+		<script type="text/javascript">
+			$.backstretch([
+				"http://4.bp.blogspot.com/-SkCaQXul0TY/VKnedLcZosI/AAAAAAAAAK8/qy8GL9kxLII/w1200-h630-p-k-no-nu/orgullo%2Bpolit%C3%A9cnico.jpg",
+				"https://img00.deviantart.net/eda1/i/2015/110/b/6/wallpaper_ipn_blood_by_iloveipn-d6j1kbh.jpg",
+				"http://ro-kam.com/wp-content/uploads/2017/05/vlcsnap-2017-05-09-09h15m22s202.jpg"
+			], {duration: 3000, fade: 750});
+
+			//$(document).ready(function(){
+				/*"use strict";
+				define(["require", "exports", "assets/js/entidades"], function (require, exports, alumnos_1) {
+				    "use strict";
+				    Object.defineProperty(exports, "__esModule", { value: true });
+	 	 				var valuAl = new alumnos_1.curso.Alumno();
+	 	 				valuAl.setNombre("Alfonso");
+						alert(valuAl);
+						console.log(valuAl);
+	 	 				console.log(valuAl.getNombre());
+				});*/
+				define(['require', 'assets/js/entidades'], function (require) {
+						console.log(require);
+				    //var namedModule = require('assets/js/entidades');
+				});
+			//});
+    	</script>
+	</body>
+</html>

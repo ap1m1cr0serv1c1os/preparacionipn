@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="alumno/includes/heads :: header"></head>
+	<body>
+		<div class="container-pz">
+			<header th:replace="alumno/includes/header :: header-menu"></header>
+			<div th:replace="alumno/includes/header :: header-movil"></div>
+			<div class="border-back">
+				<img src="http://www.educacionpersonal.com/edupersonal/theme/image.php/campus/theme/1528969453/background" class="img-wall"/>
+			</div>
+
+      <div class="section">
+        <div class="container">
+          <hr>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="footer">
+                <h3 class="footer-title">Nosotros</h3>
+                <p>Wilfrido Massieu 310 y 684, <br>Col. Planetario Lindavista. CDMX, México.<br>Lunes a Domingo de 9 am a 8 pm</p>
+                <ul class="footer-links">
+                  <li><a href="#"><i class="fa fa-phone"></i>(55) 8436 9486</a></li>
+                  <li><a href="#"><i class="fa fa-phone"></i>(55) 7822 0963</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div style="width: 100%">
+                <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&height=400&hl=es&coord=19.496737,-99.1425129&q=Wilfrido%20Massieu%20310%20Col.%20Planetario%20Lindavista.+(IPN)&ie=UTF8&t=&z=17&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/crear-un-mapa-de-google/">Crear mapa interactivo</a> by <a href="https://www.mapsdirections.info/">Mapa España</a></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+				<div id="bottom-footer" class="section">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<span class="copyright">
+									Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<button title="Back to top" class="scroll">
+        		<span class="arrow-up fas fa-angle-up"></span>
+    		</button>
+		</div>
+		<div th:replace="alumno/includes/script :: scripts"></div>
+		<script src="assets/js/funtions.js"></script>
+		<script type="text/javascript" src="assets/js/errores.js"></script>
+    	<script type="text/javascript">
+		/*(function (d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id))
+						return;
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "https://connect.facebook.net/en_US/sdk.js?access_token=EAAd1oZBvQLyABAA8iT8ztfWgHxk9Qggk7aKwkJ5kDJ79dwz501ZC8JEDtvAg8fMAnAGAYOwZAbmTVOOabHzbhhYSWNRdPzhYxebgr8iWg2sQCvdB8q4cKbatTFZAbQxr7XdxAnZAMuZB89vBH2JtmC78kyibTEbQhFH3jyD6NzY48ezl003PzgJqvh1y9uy81vT3XuxVj5LgZDZD";
+				fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+
+		window.fbAsyncInit = function () {
+				FB.init({
+						appId: '2099671733382944',
+						cookie: true,
+						xfbml: true,
+						version: 'v2.8'
+				});
+				FB.getLoginStatus(function (response) {
+					console.log(response);
+					if (response.status === 'connected') {
+							FB.api('/me', function (dataresponse) {
+									console.log(dataresponse);
+							});
+					}
+				});
+
+				FB.api('/113124472034820?access_token=EAAd1oZBvQLyABADZAYucqZB4f12xfRdQmei4MoYcqd3xNtwcZBryd6taBQG5aIwPy5lWQjZCvEnacUWRryeavd9aS6xv4uszuO46CL5ZBnOUmFY6kB5arF4xhOi42ujQcHJKD1Lj2j76fs6Pc0qv1TBuHdWEiARfyDgmeqiKTe9FgNZBVp54xRkFyze5NGIeHYZCSX5Dw5XmGAZDZD', function(response) {
+				  console.log(response);
+				});
+				var body = 'Reading JS SDK documentation';
+				FB.api('/2231443443536976/feed', 'post', { message: body }, function(response) {
+				  if (!response || response.error) {
+				    alert('Error occured');
+				  } else {
+				    alert('Post ID: ' + response.id);
+				  }
+				});
+		};*/
+    </script>
+	</body>
+</html>
