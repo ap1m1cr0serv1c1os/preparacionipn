@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="alumno/includes/heads :: header"></head>
+	<body>
+		<div class="container-pz">
+			<header th:replace="alumno/includes/header :: header-menu"></header>
+			<div th:replace="alumno/includes/header :: header-movil"></div>
+			<div class="border-back">
+				<img src="http://www.educacionpersonal.com/edupersonal/theme/image.php/campus/theme/1528969453/background" class="img-wall"/>
+			</div>
+      <div class="section">
+  			<div class="container">
+          <hr>
+          <div class="section-title">
+            <h3 class="title">Nosotros</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <img style="height:100%; width:100%;" src="https://www.preparacionipn.com/img/chicos.png"/>
+            </div>
+  					<div class="col-md-6">
+              <h1>Preparación IPN</h1>
+              <p style="text-align: justify;">
+                Preparación IPN es una asociación fundada en el año 2012 por estudiantes y egresados del Politécnico<br>
+                Muchos hemos sido víctimas de un pésimo nivel de enseñanza en ciencias exactas. En nuestro país, hay muchos jóvenes que no saben bien Matemáticas, Física, Química y otras materias porque no les enseñaron adecuadamente. No se acuerdan cómo factorizar bien, cómo hacer despejes, cómo resolver logaritmos, entre otras cosas. Por esta razón, se ponen muy nerviosos al momento de realizar exámenes de admisión a Preparatoria o Universidad.<br>
+                Por ello, en Preparación IPN se les enseña desde cero, para corregir el mal aprendizaje que recibieron. Enseñamos con tanta claridad que muchos jóvenes nos han dicho que han aprendido más con nosotros que en toda su secundaria y preparatoria juntas. Enseñar es inspirar. Cuando un joven aprende cosas nuevas, se motiva y su actitud hacia el examen cambia. No sólo queremos que sigan con sus estudios, sino que tengan el máximo aprovechamiento escolar. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+			<footer id="footer">
+				<div id="bottom-footer" class="section">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<span class="copyright">
+									Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<button title="Back to top" class="scroll">
+        		<span class="arrow-up fas fa-angle-up"></span>
+    		</button>
+		</div>
+		<div th:replace="alumno/includes/script :: scripts"></div>
+		<script src="assets/js/funtions.js"></script>
+		<script type="text/javascript" src="assets/js/errores.js"></script>
+    <script type="text/javascript">
+      $("#btnpagar").click(function(){
+        var result = errors({
+          valid : ["strNoTarjeta","strNombreTarj","stdate"],
+          normalstyle: { "border-bottom": "solid 1px #ddd"},
+          errors : true,
+          errorstyle : { "border-bottom": "solid 1px red" },
+          otherconf : { "confemail": false }
+        });
+        clear(["strNoTarjeta","strNombreTarj"]);
+        console.log( result );
+      });
+    </script>
+	</body>
+</html>

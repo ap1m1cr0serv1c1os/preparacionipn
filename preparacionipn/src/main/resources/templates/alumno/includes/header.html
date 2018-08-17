@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<header class="header d-flex flex-row" th:fragment="header-menu">
+		<div class="header-content d-flex flex-row align-items-center">
+			<div class="logo-container">
+				<div class="logo">
+					<a href="./">
+						<img src="https://preparacionipn.com/admin/images/logo_.png" style="height: 50%; width: 50%" alt="">
+					</a>
+				</div>
+			</div>
+			<nav class="nav-container">
+				<div class="nav">
+					<ul class="nav-list">
+						<li class="nav-item"><a href="/cursos">Cursos</a></li>
+						<li class="nav-item"><a href="/nosotros">Nosotros</a></li>
+						<li class="nav-item"><a href="/contacto">Contacto</a></li>
+						<li class="nav-item sesion" scope="public_profile,email"><a href="#"></a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="toggle">
+			<i class="fas fa-bars trans_200"></i>
+		</div>
+	</header>
+	<div class="menu-container minim" th:fragment="header-movil">
+		<div class="close-container">
+			<div class="menu-close"></div>
+		</div>
+		<div class="inner minim">
+			<div class="menu minim">
+				<ul class="list minim">
+					<li class="item minim"><a href="/">Inicio</a></li>
+					<li class="item minim"><a href="/cursos">Cursos</a></li>
+					<li class="item minim"><a href="/nosotros">Nosotros</a></li>
+					<li class="item minim"><a href="/contacto">Contacto</a></li>
+					<li class="item minim sesion" scope="public_profile,email"><a href="#"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</html>

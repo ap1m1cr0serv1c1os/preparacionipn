@@ -12,14 +12,52 @@ public class PruebaController {
 
 	@GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("greeting", new Greeting());
-        return "greeting";
+        return "alumno/index";
     }
 	
-	@GetMapping("/index")
-    public String getIndex(Model model) {
-        model.addAttribute("greeting", new Greeting());
-        return "alumno/index";
+	@GetMapping("/login")
+    public String getLogin(Model model) {
+        return "alumno/login";
+    }
+	
+	@GetMapping("/contacto")
+    public String getContacto(Model model) {
+        return "alumno/contacto";
+    }
+	
+	@GetMapping("/nosotros")
+    public String getNosotros(Model model) {
+        return "alumno/nosotros";
+    }
+	
+	@GetMapping("/curso")
+    public String getItemCurso(Model model) {
+        return "alumno/item-curso";
+    }
+	
+	@GetMapping("/cursos")
+    public String getCursos(Model model) {
+        return "alumno/cursos";
+    }
+	
+	@GetMapping("/detalles")
+    public String getDetallesPago(Model model) {
+        return "alumno/detalles-pago";
+    }
+	
+	@GetMapping("/mis-cursos")
+    public String getMisCursos(Model model) {
+        return "alumno/mis-cursos";
+    }
+	
+	@GetMapping("/mis-pagos")
+    public String getMisPagos(Model model) {
+        return "alumno/mis-pagos";
+    }
+	
+	@GetMapping("/perfil")
+    public String getPerfil(Model model) {
+        return "alumno/perfil";
     }
 	
 	@PostMapping("/greeting")
