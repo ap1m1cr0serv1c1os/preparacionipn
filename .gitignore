@@ -47,7 +47,6 @@ Thumbs.db
 
 # Eclipse files #
 ######################
-
 .metadata
 bin/
 tmp/
@@ -70,3 +69,9 @@ local.properties
 .target
 # Code Recommenders
 .recommenders/
+
+*.bin
+*.lock
+/.settings/
+/.gradle/
+/bin/
