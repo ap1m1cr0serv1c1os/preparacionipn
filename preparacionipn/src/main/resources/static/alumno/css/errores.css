@@ -1,0 +1,12 @@
+.box-error {
+  display:none;
+  font-size: 12px;
+  background-color: #FFB7B9;
+  border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  padding: 5px;
+  margin-top: 3px;
+  font-weight: 100;
+  color: #A50505;
+}
