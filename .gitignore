@@ -44,3 +44,29 @@ Thumbs.db
 .project
 .settings
 .springBeans
+
+# Eclipse files #
+######################
+
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+# External tool builders
+.externalToolBuilders/
+# Locally stored "Eclipse launch configurations"
+*.launch
+# CDT- autotools
+.autotools
+# PDT-specific (PHP Development Tools)
+.buildpath
+# sbteclipse plugin
+.target
+# Code Recommenders
+.recommenders/
