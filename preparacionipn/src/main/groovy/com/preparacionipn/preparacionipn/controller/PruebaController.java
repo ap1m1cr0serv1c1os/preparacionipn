@@ -16,6 +16,12 @@ public class PruebaController {
         return "greeting";
     }
 	
+	@GetMapping("/index")
+    public String getIndex(Model model) {
+        model.addAttribute("greeting", new Greeting());
+        return "alumno/index";
+    }
+	
 	@PostMapping("/greeting")
     public String greetingSubmit(@ModelAttribute Greeting greeting) {
         return "result";

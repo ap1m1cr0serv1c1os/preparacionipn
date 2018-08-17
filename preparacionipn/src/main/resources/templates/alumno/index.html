@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:insert="alumno/includes/heads :: header"></head>
+	<body>
+		<div class="container-pz">
+			<header class="header d-flex flex-row">
+				<div class="header-content d-flex flex-row align-items-center">
+					<div class="logo-container">
+						<div class="logo">
+							<a href="./">
+								<img src="https://preparacionipn.com/admin/images/logo_.png" style="height: 50%; width: 50%" alt="">
+							</a>
+						</div>
+					</div>
+					<nav class="nav-container">
+						<div class="nav">
+							<ul class="nav-list">
+								<li class="nav-item"><a href="cursos.html">Cursos</a></li>
+								<li class="nav-item"><a href="nosotros.html">Nosotros</a></li>
+								<li class="nav-item"><a href="contacto.html">Contacto</a></li>
+								<li class="nav-item sesion" scope="public_profile,email"><a href="#"></a></li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+				<div class="toggle">
+					<i class="fas fa-bars trans_200"></i>
+				</div>
+			</header>
+			<div class="menu-container minim">
+				<div class="close-container">
+					<div class="menu-close"></div>
+				</div>
+				<div class="inner minim">
+					<div class="menu minim">
+						<ul class="list minim">
+							<li class="item minim"><a href="./">Inicio</a></li>
+							<li class="item minim"><a href="cursos.html">Cursos</a></li>
+							<li class="item minim"><a href="nosotros.html">Nosotros</a></li>
+							<li class="item minim"><a href="contacto.html">Contacto</a></li>
+							<li class="item minim sesion" scope="public_profile,email"><a href="#"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="home">
+				<div class="hero_slider_container">
+					<div class="hero_slider owl-carousel">
+						<div class="hero_slide">
+							<div class="hero_slide_background" style="background-image:url(https://www.academiadeinternet.com.mx/assets/img/slider/slide1.jpg)"></div>
+						</div>
+						<div class="hero_slide">
+							<div class="hero_slide_background" style="background-image:url(https://i2.wp.com/alianzafrancesapanama.com/wp-content/uploads/2017/05/SLIDE-PAGE-WEB-CURSOS-2018.jpg)"></div>
+						</div>
+						<div class="hero_slide">
+							<div class="hero_slide_background" style="background-image:url(http://s1.1zoom.me/big0/259/Destiny_Online_Warlock_461204.jpg)"></div>
+							<div class="hero_slide_container d-flex flex-column align-items-center justify-content-center">
+								<div class="hero_slide_content text-center">
+									<h1 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOut">Hola <span>Alfonso</span> </h1>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="hero_slider_left hero_slider_nav trans_200"><span class="trans_200"><i class="fas fa-angle-left"></i></span></div>
+					<div class="hero_slider_right hero_slider_nav trans_200"><span class="trans_200"><i class="fas fa-angle-right"></i></span></div>
+				</div>
+
+			</div>
+
+			<div class="section" id="cursos">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="section-title">
+								<h3 class="title">Nuevos cursos</h3>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="row">
+											<div class="curso col-md-3">
+												<div class="curso-img">
+													<img src="https://i.ytimg.com/vi/wmwQSO0Fx9E/maxresdefault.jpg" alt="">
+												</div>
+												<div class="curso-body">
+													<p class="curso-profesor">{{ Nombre profesor }}</p>
+													<h3 class="curso-nombre"><a href="#">{{ Nombre curso }}</a></h3>
+													<h4 class="curso-precio">${{ Precio }}</h4>
+													<div class="curso-rating">
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="add-to-cart">
+													<button class="add-to-cart-btn" onclick="location.href='curso.html'"><i class="fa fa-shopping-cart"></i> Comprar</button>
+												</div>
+											</div>
+											<div class="curso col-md-3">
+												<div class="curso-img">
+													<img src="https://i.ytimg.com/vi/wmwQSO0Fx9E/maxresdefault.jpg" alt="">
+												</div>
+												<div class="curso-body">
+													<p class="curso-profesor">{{ Nombre profesor }}</p>
+													<h3 class="curso-nombre"><a href="#">{{ Nombre curso }}</a></h3>
+													<h4 class="curso-precio">${{ Precio }}</h4>
+													<div class="curso-rating">
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star-o"></i>
+													</div>
+												</div>
+												<div class="add-to-cart">
+													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
+												</div>
+											</div>
+											<div class="curso col-md-3">
+												<div class="curso-img">
+													<img src="https://i.ytimg.com/vi/wmwQSO0Fx9E/maxresdefault.jpg" alt="">
+												</div>
+												<div class="curso-body">
+													<p class="curso-profesor">{{ Nombre profesor }}</p>
+													<h3 class="curso-nombre"><a href="#">{{ Nombre curso }}</a></h3>
+													<h4 class="curso-precio">${{ Precio }}</h4>
+													<div class="curso-rating">
+													</div>
+												</div>
+												<div class="add-to-cart">
+													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
+												</div>
+											</div>
+											<div class="curso col-md-3">
+												<div class="curso-img">
+													<img src="https://i.ytimg.com/vi/wmwQSO0Fx9E/maxresdefault.jpg" alt="">
+												</div>
+												<div class="curso-body">
+													<p class="curso-profesor">{{ Nombre profesor }}</p>
+													<h3 class="curso-nombre"><a href="#">{{ Nombre curso }}</a></h3>
+													<h4 class="curso-precio">${{ Precio }}</h4>
+													<div class="curso-rating">
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="add-to-cart">
+													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
+												</div>
+											</div>
+											<div class="curso col-md-3">
+												<div class="curso-img">
+													<img src="https://i.ytimg.com/vi/wmwQSO0Fx9E/maxresdefault.jpg" alt="">
+												</div>
+												<div class="curso-body">
+													<p class="curso-profesor">{{ Nombre profesor }}</p>
+													<h3 class="curso-nombre"><a href="#">{{ Nombre curso }}</a></h3>
+													<h4 class="curso-precio">${{ Precio }}</h4>
+													<div class="curso-rating">
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="add-to-cart">
+													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Comprar</button>
+												</div>
+											</div>
+										</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer id="footer">
+				<div id="bottom-footer" class="section">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<span class="copyright">
+									Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<button title="Back to top" class="scroll">
+        <span class="arrow-up fas fa-angle-up"></span>
+    	</button>
+		</div>
+		<script th:src="@{/alumno/js/jquery-3.2.1.min.js}"></script>
+		<script th:src="@{/alumno/css/bootstrap4/popper.js}"></script>
+		<script th:src="@{/alumno/css/bootstrap4/bootstrap.min.js}"></script>
+		<script th:src="@{/alumno/scrollmagic/ScrollMagic.min.js}"></script>
+		<script th:src="@{/alumno/carousel/owl.carousel.js}"></script>
+		<script type="text/javascript" src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=2099671733382944" id="facebook-jssdk"></script>
+		<script th:src="@{/alumno/js/funtions.js}"></script>
+		<script type="text/javascript">
+		$(".add-to-cart-btn").click(function(){
+			addProducto( $(".curso-precio").val(), $(".curso-nombre").val() );
+		});
+		function addProducto(producto, precio){
+			sessionStorage.setItem(producto,precio);
+			mostrarDatos(producto);
+		}
+		function mostrarDatos(){
+			for(var i = 0; i < sessionStorage.length; i++){
+				var producto = sessionStorage.key(i);
+				var precio = sessionStorage.getItem( producto );
+				console.log('<div>' + producto + ' - ' + precio + '</div>');
+			}
+		}
+		</script>
+	</body>
+</html>
