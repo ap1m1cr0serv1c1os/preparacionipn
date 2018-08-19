@@ -81,6 +81,7 @@ var errors = function(objectConfg) {
 		styleerror = objectConfg.errorstyle != undefined ? objectConfg.errorstyle : { "border" : "1px solid red" };
 		mailmesage = objectConfg.otherconf != undefined ? objectConfg.otherconf : { "confemail" : false, "elements": false };
 		lstelements = objectConfg.lstelements != undefined ? objectConfg.lstelements : undefined;
+		var elementsfist;
 		if(lstelements != undefined){
 			jQuery.each(lstelements, function ( key, value ) {
 				jQuery(value).css(stylenormal);
@@ -90,18 +91,9 @@ var errors = function(objectConfg) {
 				if (mailmesage.confemail) {
 					jQuery("#err-email-" + jQuery(value).attr("id") ).hide("slow");
 				}
-			}
-			
-			jQuery.each(lstitems, function ( key, value ) {
-				if(jQuery(value).attr("value") !== ""){
-					jQuery(value).css(styleerror);
-					if (type) {
-						jQuery("#err" + jQuery(value).attr("id") ).show("slow");
-					}
-				}else{
-					jQuery(value).css(stylenormal);
-				}
 			});
+			var validationes = new Validacion(true);
+			return validationes.getType();
 		}
 		for (var _i = 0, arraylst_2 = arraylst; _i < arraylst_2.length; _i++) {
 			var valoritem = arraylst_2[_i];
@@ -126,55 +118,48 @@ var Validacion = /** @class */ (function() {
 	Validacion.prototype.getType = function() {
 		var i = 0;
 		var operations = new OperationsValidation();
-		
+		var operationselements = new OperationsValidationElements();
+
 		if (this.isElement) {
 			jQuery.each(lstelements, function (key, value) {
 				var atributoId = jQuery(value).attr("id");
 				switch (jQuery(value).get(0).nodeName) {
-                    case "INPUT":{
-                    	switch (jQuery(value).attr("type")) {
-                    	case "email":{
-                    		values[i] = function(){
-	                    		var valoritem = jQuery(value).val();
-	                    		if (valoritem === "") {
-	                    			jQuery(value).css(styleerror);
-	                    			if (type) { jQuery("#err" + atributoId ).show("slow"); }
-	                    			return false;
-	                    		}
-	                    		if (this.getExpresion(valoritem, "c") === false) {
-	                    			jQuery(value).css(styleerror);
-	                    			if (mailmesage.confemail) {
-	                    				jQuery("#err-email-" + atributoId).show("slow");
-	                    			} else if (type) {
-	                    				jQuery("#err" + atributoId).show("slow");
-	                    			}
-	                    			return false;
-	                    		}
-	                    		return true;
-                    		};
-                    		}
-                    	break;
-                    	case "text":{
-                    		values[i] = operations.getValueText(value, type);
-                    		}
-                    	break;
-                    	}
-                    }
-                    break;
-                    case "TEXTAREA":{
-                            values[i] = operations.getValueText(value, type);
-                            }
-                    break;
-                    case "SELECT":{
-                    	values[i] = operations.getValueSelect(value, type);
-                    	}
-                    break;
-                    default: break;
-                }
-            });
-        }
-		
-		for (var _i = 0, arraylst_1 = arraylst; _i < arraylst_1.length; _i++) {
+					case "INPUT":{
+						switch (jQuery(value).attr("type")) {
+							case "email":{
+								values[i] = operationselements.getIEmail(value, atributoId);
+							}
+              break;
+              case "text":{
+              	values[i] = operationselements.getValueText(value, atributoId);
+              }
+            	break;
+							case "tel": {
+								values[_i] = operationselements.getValueText(value, type);
+							}
+							break;
+							case "date": {
+								values[_i] = operations.getExpresion(jQuery(value).val(), "f");
+							}
+							break;
+            }
+          }
+          break;
+					case "TEXTAREA":{
+						values[i] = operationselements.getValueText(value, atributoId);
+					}
+					break;
+					case "SELECT":{
+						values[i] = operationselements.getValueSelect(value, atributoId);
+					}
+					break;
+					default: break;
+				}
+				i++;
+			});
+		}
+
+		for (var _i = i, arraylst_1 = arraylst; _i < arraylst_1.length; _i++) {
 			var datoItem = arraylst_1[_i];
 			switch (jQuery("#" + datoItem).get(0).nodeName) {
 			case "INPUT": {
@@ -215,6 +200,7 @@ var Validacion = /** @class */ (function() {
 		var desition = values.filter(function(item) {
 			return item == false;
 		});
+		console.log("valor desition => "+values);
 		return desition.length > 0 ? false : true;
 	};
 	return Validacion;
@@ -294,6 +280,57 @@ var OperationsValidation = /** @class */ (function() {
 	return OperationsValidation;
 }());
 
+var OperationsValidationElements = /** @class */ (function () {
+    function OperationsValidationElements() {
+    }
+		var operations = new OperationsValidation();
+    OperationsValidationElements.prototype.getIEmail = function (value, atributoId) {
+        var valoritem = jQuery(value).val();
+        if (valoritem === "") {
+            jQuery(value).css(styleerror);
+            if (type) {
+                jQuery("#err" + atributoId).show("slow");
+            }
+            return false;
+        }
+        if (operations.getExpresion(valoritem, "c") === false) {
+            jQuery(value).css(styleerror);
+            if (mailmesage.confemail) {
+                jQuery("#err-email-" + atributoId).show("slow");
+            }
+            else if (type) {
+                jQuery("#err" + atributoId).show("slow");
+            }
+            return false;
+        }
+        return true;
+    };
+    OperationsValidationElements.prototype.getValueText = function (value, atributoId) {
+        var valoritem = jQuery(value).val();
+        if (valoritem === "") {
+            jQuery(value).css(styleerror);
+            if (type) {
+                jQuery("#err" + atributoId).show("slow");
+            }
+            return false;
+        }
+        return true;
+    };
+    OperationsValidationElements.prototype.getValueSelect = function (value, atributoId) {
+        var valoritem = jQuery(value).val();
+        if (valoritem === "" || valoritem === "0" || valoritem === undefined) {
+            jQuery(value).css(styleerror);
+            if (type) {
+                jQuery("#err" + atributoId).show("slow");
+            }
+            return false;
+        }
+        return true;
+    };
+    return OperationsValidationElements;
+}());
+
+
 var clear = function(arraylst) {
 	for (var _i = 0, arraylst_3 = arraylst; _i < arraylst_3.length; _i++) {
 		var itemClear = arraylst_3[_i];
@@ -310,6 +347,7 @@ var clear = function(arraylst) {
 		}
 	}
 };
+
 var clearElements = function(lstements) {
 	jQuery.each(lstements, function ( key, value ) {
 		switch ( jQuery(value).get(0).nodeName ){
@@ -324,6 +362,31 @@ var clearElements = function(lstements) {
 			break;
 		}
 	});
+}
+
+var convertToClass = function(classtoConvert, objeto){
+	jQuery.each(objeto, function ( key, value ) {
+		classtoConvert[key] = value;
+	});
+	return classtoConvert;
+}
+
+var convertToObject = function(lstements){
+	var objetoCreado={};
+	jQuery.each(lstements, function ( key, value ) {
+		switch ( jQuery(value).get(0).nodeName ){
+		case "INPUT":
+			objetoCreado[jQuery(value).attr("id")] = jQuery(value).val();
+			break;
+		case "SELECT":
+			objetoCreado[jQuery(value).attr("id")] = jQuery(value).selectedIndex;
+			break;
+		case "TEXTAREA":
+			objetoCreado[jQuery(value).attr("id")] = jQuery(value).val();
+			break;
+		}
+	});
+	return objetoCreado;
 }
 
 jQuery(".data-numeric").keypress(function() {

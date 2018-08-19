@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import com.preparacionipn.preparacionipn.model.Greeting;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PruebaController {
@@ -18,6 +19,16 @@ public class PruebaController {
 	@GetMapping("/login")
     public String getLogin(Model model) {
         return "alumno/login";
+    }
+	
+	@GetMapping("/admin/index")
+    public String getIndexAdmin(Model model) {
+        return "administrador/index";
+    }
+	
+	@GetMapping("/admin/crud")
+    public String getCursoAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+        return "administrador/secciones/admins/crud";
     }
 	
 	@GetMapping("/contacto")

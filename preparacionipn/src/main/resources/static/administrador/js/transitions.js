@@ -1,5 +1,5 @@
 function getItem(id) {
-	var hrefs = $(id).attr("href-to-view-back") == true ? $(id).attr("href-to-view") : "views/" + $(id).attr("href-to-view");
+	var hrefs = $(id).attr("href-to-view");//$(id).attr("href-to-view-back") == true ? $(id).attr("href-to-view") : "views/" + $(id).attr("href-to-view");
 	if ($(id).attr("href-to-menu") != undefined) {
 		var contenido = $(id).attr("href-to-menu");
 		$(".change-menu").find(".has-sub").removeClass("has-sub");
@@ -12,22 +12,34 @@ function getItem(id) {
 	};
 	if ($(id).attr("href-to-view-data") != undefined) {
 		idelement.id = $(id).attr("href-to-view-data");
+		$.ajax({
+			type : "get",
+			url : hrefs,
+			data : idelement,
+			cache : false,
+			success : function(dato) {
+				$(".main-content").fadeOut("slow", function() {
+					$(this).html(dato).slideDown("slow");
+				});
+			},
+			error : function(XMLHttpRequest, textStatus, errorthrows) {
+				alert('Error: ' + errorthrows);
+			}
+		});
+	}else{
+		$.ajax({
+			type : "get",
+			url : hrefs,
+			cache : false,
+			success : function(dato) {
+				$(".main-content").fadeOut("slow", function() {
+					$(this).html(dato).slideDown("slow");
+				});
+			},
+			error : function(XMLHttpRequest, textStatus, errorthrows) {
+				alert('Error: ' + errorthrows);
+			}
+		});
 	}
-	$.ajax({
-		type : "get",
-		url : hrefs + ".html",
-		data : idelement,
-		cache : false,
-		success : function(dato) {
-			$(".main-content").fadeOut("slow", function() {
-				$(this).html(dato).slideDown("slow");
-			});
-		},
-		error : function(XMLHttpRequest, textStatus, errorthrows) {
-			alert('Error: ' + errorthrows);
-		}
-	});
-}
-function getClase(alumno){
-	alumno.getNombre();
+	
 }
