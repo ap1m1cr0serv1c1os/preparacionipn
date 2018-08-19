@@ -135,15 +135,23 @@ var Validacion = /** @class */ (function() {
               }
             	break;
 							case "tel": {
-								values[_i] = operationselements.getValueText(value, type);
+								values[i] = operationselements.getValueText(value, type);
 							}
 							break;
 							case "password": {
-								values[_i] = operationselements.getValueText(value, type);
+								values[i] = operationselements.getValueText(value, type);
+							}
+							break;
+							case "checkbox": {
+								values[i] = jQuery(value).is(":checked") ? true : false;
+							}
+							break;
+							case "radio": {
+								values[i] = jQuery(value).is(":checked") ? true : false;
 							}
 							break;
 							case "date": {
-								values[_i] = operations.getExpresion(jQuery(value).val(), "f");
+								values[i] = operations.getExpresion(jQuery(value).val(), "f");
 							}
 							break;
             }
@@ -183,6 +191,14 @@ var Validacion = /** @class */ (function() {
 				break;
 				case "password": {
 					values[_i] = operations.getValueText(datoItem, type);
+				}
+				break;
+				case "checkbox": {
+					values[_i] = jQuery("#" + datoItem).is(":checked") ? true : false;
+				}
+				break;
+				case "radio": {
+					values[_i] = jQuery("#" + datoItem).is(":checked") ? true : false;
 				}
 				break;
 				case "date": {
@@ -385,6 +401,10 @@ var convertToObject = function(lstements){
 		case "INPUT":
 			switch (jQuery(value).attr("type")) {
 				case "checkbox": {
+					objetoCreado[jQuery(value).attr("id")] = jQuery(value).is(":checked") ? true : false;
+				}
+				break;
+				case "radio": {
 					objetoCreado[jQuery(value).attr("id")] = jQuery(value).is(":checked") ? true : false;
 				}
 				break;
