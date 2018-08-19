@@ -1,3 +1,4 @@
+<html xmlns:th="http://www.thymeleaf.org">
 <div class="section__content section__content--p30">
     <div class="container-fluid">
       <div class="row">
@@ -18,11 +19,11 @@
                         <div class="col-md-6">
                           <div class="form-group">
                               <label for="strnombre" class="control-label mb-1">Nombre</label>
-                              <input id="strnombre" name="strnombre" type="text" class="form-control">
+                              <input id="strnombre" th:value="${greet.id}" name="strnombre" type="text" class="form-control">
                           </div>
                           <div class="form-group">
                               <label for="strcorreo" class="control-label mb-1">Correo</label>
-                              <input id="strcorreo" name="strcorreo" type="text" class="form-control">
+                              <input id="strcorreo" th:value="${greet.content}" name="strcorreo" type="text" class="form-control">
                           </div>
                           <div class="form-group">
                               <label for="strpass" class="control-label mb-1">Contraseña</label>
@@ -47,9 +48,12 @@
                               <input id="chkactualizar" name="chkactualizar" type="checkbox">
                           </div>
                           <div>
-                              <button id="editar-button" type="submit" class="btn btn-lg btn-info btn-block">
-                                  <i class="fa fa-lock fa-lg"></i>&nbsp;Editar
-                              </button>
+                              <input id="editar-button" onclick="sendData(this);" 
+                              onsend='["editar-button"]' 
+                              onvalid='["editar-button","chkregistrar","chkeliminar","chkactualizar"]' 
+                              onclear="false"
+                              href-post="/admin/crud"
+                              type="button" class="btn btn-lg btn-info btn-block" value="Editar">
                           </div>
                         </div>
                       </div>
@@ -60,3 +64,4 @@
       </div>
     </div>
 </div>
+</html>

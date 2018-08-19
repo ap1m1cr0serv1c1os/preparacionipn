@@ -138,6 +138,10 @@ var Validacion = /** @class */ (function() {
 								values[_i] = operationselements.getValueText(value, type);
 							}
 							break;
+							case "password": {
+								values[_i] = operationselements.getValueText(value, type);
+							}
+							break;
 							case "date": {
 								values[_i] = operations.getExpresion(jQuery(value).val(), "f");
 							}
@@ -177,6 +181,10 @@ var Validacion = /** @class */ (function() {
 					values[_i] = operations.getValueText(datoItem, type);
 				}
 				break;
+				case "password": {
+					values[_i] = operations.getValueText(datoItem, type);
+				}
+				break;
 				case "date": {
 					values[_i] = operations.getExpresion(jQuery("#" + datoItem).val(), "f");
 				}
@@ -200,7 +208,6 @@ var Validacion = /** @class */ (function() {
 		var desition = values.filter(function(item) {
 			return item == false;
 		});
-		console.log("valor desition => "+values);
 		return desition.length > 0 ? false : true;
 	};
 	return Validacion;
@@ -376,7 +383,13 @@ var convertToObject = function(lstements){
 	jQuery.each(lstements, function ( key, value ) {
 		switch ( jQuery(value).get(0).nodeName ){
 		case "INPUT":
-			objetoCreado[jQuery(value).attr("id")] = jQuery(value).val();
+			switch (jQuery(value).attr("type")) {
+				case "checkbox": {
+					objetoCreado[jQuery(value).attr("id")] = jQuery(value).is(":checked") ? true : false;
+				}
+				break;
+				default: objetoCreado[jQuery(value).attr("id")] = jQuery(value).val(); break;
+			}
 			break;
 		case "SELECT":
 			objetoCreado[jQuery(value).attr("id")] = jQuery(value).selectedIndex;

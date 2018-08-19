@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.preparacionipn.preparacionipn.model.Administrador;
 import com.preparacionipn.preparacionipn.model.Greeting;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,14 +25,26 @@ public class PruebaController {
     }
 	
 	@GetMapping("/admin/index")
-    public String getIndexAdmin(Model model) {
+    public String getIndexAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
         return "administrador/index";
     }
 	
-	@GetMapping("/admin/crud")
-    public String getCursoAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+	@GetMapping("/admin/crud/{id}")
+    public String getCursoAdmin(
+    		@RequestParam(value="_", required=false) String clave, 
+    		@PathVariable(name = "id") int id, Model model) {
+	    Greeting greet = new Greeting();
+	    greet.setId( id );
+	    greet.setContent("Un titulo");
+	    model.addAttribute("greet", greet);
         return "administrador/secciones/admins/crud";
     }
+	
+	@PostMapping("/admin/crud")
+	public String postCursoAdmin(@ModelAttribute("administrador") Administrador administrador) {
+		System.out.println(administrador.toString());
+		return "redirect: /admin/index";
+	}
 	
 	@GetMapping("/contacto")
     public String getContacto(Model model) {

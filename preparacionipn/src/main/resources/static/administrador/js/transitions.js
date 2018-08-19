@@ -14,8 +14,7 @@ function getItem(id) {
 		idelement.id = $(id).attr("href-to-view-data");
 		$.ajax({
 			type : "get",
-			url : hrefs,
-			data : idelement,
+			url : hrefs + "/" + idelement.id,
 			cache : false,
 			success : function(dato) {
 				$(".main-content").fadeOut("slow", function() {
