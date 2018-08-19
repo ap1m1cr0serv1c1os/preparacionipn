@@ -1,0 +1,28 @@
+.nav-container {
+    display: inline-block;
+    margin-left: auto;
+    padding-right: 93px;
+}
+
+.nav {
+    margin-top: 7px;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-right: 40px;
+    &:last-child {
+        margin-right: 0px;
+    }
+    a {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #3a3a3a;
+        @include transition(all, 200ms, ease);
+        &:hover {
+            color: $applicacion-gral;
+        }
+    }
+}

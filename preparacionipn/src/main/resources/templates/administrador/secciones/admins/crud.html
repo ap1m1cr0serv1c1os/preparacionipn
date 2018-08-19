@@ -1,0 +1,62 @@
+<div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="overview-wrap">
+                  <button class="au-btn au-btn-icon au-btn--blue" onclick="getItem(this);" href-to-view-back="false" href-to-view="administradores/index">
+                    <i class="fas fa-chevron-left"></i></button>
+              </div>
+          </div>
+      </div>
+      <div class="row m-t-30">
+          <div class="col-md-12">
+            <div class="card">
+                  <div class="card-header">Administrador </div>
+                  <div class="card-body">
+                    <form action="" method="post" novalidate="novalidate" class="valid-errors">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="strnombre" class="control-label mb-1">Nombre</label>
+                              <input id="strnombre" name="strnombre" type="text" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="strcorreo" class="control-label mb-1">Correo</label>
+                              <input id="strcorreo" name="strcorreo" type="text" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="strpass" class="control-label mb-1">Contraseña</label>
+                              <input id="strpass" autocomplete="cc-csc" name="strpass" type="password" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="strpassre" class="control-label mb-1">repetir contraseña</label>
+                              <input id="strpassre" autocomplete="cc-csc" name="strpassre" type="password" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="chkregistrar" class="control-label mb-1">Registrar</label>
+                              <input id="chkregistrar" name="chkregistrar" type="checkbox">
+                          </div>
+                          <div class="form-group">
+                              <label for="chkeliminar" class="control-label mb-1">Eliminar</label>
+                              <input id="chkeliminar" name="chkeliminar" type="checkbox">
+                          </div>
+                          <div class="form-group">
+                              <label for="chkactualizar" class="control-label mb-1">Actualizar</label>
+                              <input id="chkactualizar" name="chkactualizar" type="checkbox">
+                          </div>
+                          <div>
+                              <button id="editar-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                  <i class="fa fa-lock fa-lg"></i>&nbsp;Editar
+                              </button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>

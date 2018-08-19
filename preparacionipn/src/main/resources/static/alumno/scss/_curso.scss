@@ -1,0 +1,883 @@
+.section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.section-title {
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    .title {
+        display: inline-block;
+        text-transform: uppercase;
+        margin: 0px;
+    }
+    .section-nav {
+        float: right;
+        .section-tab-nav {
+            display: inline-block;
+        }
+    }
+}
+
+.section-tab-nav li {
+    display: inline-block;
+    margin-right: 15px;
+    &:last-child {
+        margin-right: 0px;
+    }
+    a {
+        font-weight: 700;
+        color: $titulos-producto;
+        &:after {
+            content: "";
+            display: block;
+            width: 0%;
+            height: 2px;
+            background-color: $btn-compra;
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all;
+        }
+    }
+    &.active a {
+        color: $btn-compra;
+    }
+    a {
+        &:hover:after, &:focus:after {
+            width: 100%;
+        }
+    }
+    &.active a:after {
+        width: 100%;
+    }
+}
+
+.curso {
+    position: relative;
+    margin: 15px 0px;
+    -webkit-box-shadow: 0px 0px 0px 0px $bord-producto, 0px 0px 0px 1px $bord-producto;
+    box-shadow: 0px 0px 0px 0px $bord-producto, 0px 0px 0px 1px $bord-producto;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+    &:hover {
+        -webkit-box-shadow: 0px 0px 6px 0px $bord-producto, 0px 0px 0px 2px $applicacion-gral;
+        box-shadow: 0px 0px 6px 0px $bord-producto, 0px 0px 0px 2px $applicacion-gral;
+    }
+    .curso-img {
+        position: relative;
+        > img {
+            width: 100%;
+        }
+    }
+    .curso-body {
+        position: relative;
+        padding: 15px;
+        background-color: #FFF;
+        text-align: center;
+        z-index: 9;
+        .curso-profesor {
+            text-transform: uppercase;
+            font-size: 12px;
+            color: $titulos-producto;
+        }
+        .curso-nombre {
+            text-transform: uppercase;
+            font-size: 14px;
+            > a {
+                font-weight: 700;
+                &:hover, &:focus {
+                    color: $btn-compra;
+                }
+            }
+        }
+        .curso-precio {
+            float: right;
+            color: $btn-compra;
+            font-size: 18px;
+        }
+
+        .curso-rating {
+            position: relative;
+            margin: 15px 0px 10px;
+            height: 20px;
+            > i {
+                position: relative;
+                width: 14px;
+                margin-right: -4px;
+                background: #FFF;
+                color: $bord-producto;
+                z-index: 10;
+                &.fa-star {
+                    color: #ef233c;
+                }
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                @include transform( translateY(-50%) );
+                height: 1px;
+                background-color: $bord-producto;
+            }
+        }
+    }
+
+    .add-to-cart {
+        left: 1px;
+        right: 1px;
+        bottom: 1px;
+        padding: 15px;
+        text-align: center;
+        @include transform(translateX(0%));
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+        z-index: 9;
+    }
+
+    .add-to-cart .add-to-cart-btn {
+        position: relative;
+        border: 2px solid transparent;
+        height: 40px;
+        padding: 0 30px;
+        background-color: #ef233c;
+        color: #FFF;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-radius: 40px;
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+        > i {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            line-height: 38px;
+            color: $btn-compra;
+            opacity: 0;
+            visibility: hidden;
+        }
+        &:hover {
+            background-color: #FFF;
+            color: $btn-compra;
+            border-color: $btn-compra;
+            padding: 0px 30px 0px 50px;
+            > i {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
+
+.curso-widget {
+    position: relative;
+    + .curso-widget {
+        margin: 30px 0px;
+    }
+    .curso-img {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 60px;
+        > img {
+            width: 100%;
+        }
+    }
+    .curso-body {
+        padding-left: 75px;
+        min-height: 60px;
+        .curso-profesor {
+            text-transform: uppercase;
+            font-size: 10px;
+            color: $titulos-producto;
+        }
+        .curso-nombre {
+            text-transform: uppercase;
+            font-size: 12px;
+            > a {
+                font-weight: 700;
+                &:hover, &:focus {
+                    color: $btn-compra;
+                }
+            }
+        }
+        .curso-precio {
+            font-size: 14px;
+            color: $btn-compra;
+            .qty {
+                font-weight: 400;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .delete {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 14px;
+        width: 14px;
+        text-align: center;
+        font-size: 10px;
+        padding: 0;
+        background: #1e1f29;
+        border: none;
+        color: #FFF;
+    }
+}
+
+.cursos-slick {
+    .slick-list {
+        padding-bottom: 60px;
+        margin-bottom: -60px;
+        z-index: 2;
+    }
+    .curso.slick-slide {
+        margin: 15px;
+    }
+}
+
+.aside {
+    + .aside {
+        margin-top: 30px;
+    }
+    > .aside-title {
+        text-transform: uppercase;
+        font-size: 18px;
+        margin: 15px 0px 10px;
+    }
+}
+
+.checkbox-filter {
+    > div + div {
+        margin-top: 10px;
+    }
+    .input-radio label, .input-checkbox label {
+        font-size: 12px;
+    }
+    .input-radio label small, .input-checkbox label small {
+        color: $titulos-producto;
+    }
+}
+
+#price-slider {
+    float: left;
+    margin-bottom: 15px;
+}
+
+.noUi-target {
+    background-color: #FFF;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid $bord-producto;
+    border-radius: 0px;
+}
+
+.noUi-connect {
+    background-color: $btn-compra;
+}
+
+.noUi-horizontal {
+    height: 6px;
+    .noUi-handle {
+        width: 12px;
+        height: 12px;
+        left: -6px;
+        top: -4px;
+        border: none;
+        background: $btn-compra;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-radius: 50%;
+    }
+}
+
+.noUi-handle {
+    &:before, &:after {
+        display: none;
+    }
+}
+
+.price-filter .input-number {
+    display: inline-block;
+    width: calc(50% - 7px);
+}
+
+.store-filter {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.store-sort {
+    display: inline-block;
+    label {
+        font-weight: 500;
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-right: 15px;
+    }
+}
+
+.store-grid {
+    float: right;
+    li {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        background-color: #FFF;
+        border: 1px solid $bord-producto;
+        text-align: center;
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+        + li {
+            margin-left: 5px;
+        }
+        &:hover {
+            background-color: $bord-producto;
+            color: $btn-compra;
+        }
+        &.active {
+            background-color: $btn-compra;
+            border-color: $btn-compra;
+            color: #FFF;
+            cursor: default;
+        }
+        a {
+            display: block;
+        }
+    }
+}
+
+.store-pagination {
+    float: right;
+    li {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: #FFF;
+        border: 1px solid $bord-producto;
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+        + li {
+            margin-left: 5px;
+        }
+        &:hover {
+            background-color: $bord-producto;
+            color: $btn-compra;
+        }
+        &.active {
+            background-color: $btn-compra;
+            border-color: $btn-compra;
+            color: #FFF;
+            font-weight: 500;
+            cursor: default;
+        }
+        a {
+            display: block;
+        }
+    }
+}
+
+.store-qty {
+    margin-right: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+
+#product-main-img {
+    .slick-prev {
+      @include transform(translateX(-15%));
+        left: 15px;
+    }
+    .slick-next {
+        @include transform(translateX(15%));
+        right: 15px;
+    }
+    .slick-prev, .slick-next {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+    }
+    &:hover {
+        .slick-prev, .slick-next {
+            @include transform(translateX(0%));
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    .zoomImg {
+        background-color: #FFF;
+    }
+}
+
+.curso-preview img {
+    width: 100%;
+}
+
+.curso-details {
+    .curso-nombre {
+        text-transform: uppercase;
+        font-size: 18px;
+    }
+    .curso-rating {
+        display: inline-block;
+        margin-right: 15px;
+        > i {
+            color: $bord-producto;
+            &.fa-star {
+                color: $btn-compra;
+            }
+        }
+    }
+    .review-link {
+        font-size: 12px;
+    }
+    .curso-precio {
+        display: inline-block;
+        font-size: 24px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        color: $btn-compra;
+    }
+    .curso-available {
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-left: 30px;
+        color: $btn-compra;
+    }
+    .curso-options {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        label {
+            font-weight: 500;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-right: 15px;
+            margin-bottom: 0px;
+        }
+        .input-select {
+            width: 90px;
+        }
+    }
+    .add-to-cart {
+        margin-bottom: 30px;
+        .add-to-cart-btn {
+            position: relative;
+            border: 2px solid transparent;
+            height: 40px;
+            padding: 0 30px;
+            background-color: #ef233c;
+            color: #FFF;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-radius: 40px;
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all;
+            > i {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 40px;
+                height: 40px;
+                line-height: 38px;
+                color: $btn-compra;
+                opacity: 0;
+                visibility: hidden;
+            }
+            &:hover {
+                background-color: #FFF;
+                color: $btn-compra;
+                border-color: $btn-compra;
+                padding: 0px 30px 0px 50px;
+                > i {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        .qty-label {
+            display: inline-block;
+            font-weight: 500;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-right: 15px;
+            margin-bottom: 0px;
+            .input-number {
+                width: 90px;
+                display: inline-block;
+            }
+        }
+    }
+    .curso-btns li {
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 12px;
+        + li {
+            margin-left: 15px;
+        }
+    }
+    .curso-links {
+        margin-top: 15px;
+        li {
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 12px;
+            + li {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+#product-tab {
+    margin-top: 60px;
+    .tab-nav {
+        position: relative;
+        text-align: center;
+        padding: 15px 0px;
+        margin-bottom: 30px;
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 1px;
+            background-color: $bord-producto;
+            z-index: -1;
+        }
+        li {
+            display: inline-block;
+            background: #FFF;
+            padding: 0px 15px;
+            + li {
+                margin-left: 15px;
+            }
+            a {
+                display: block;
+                font-weight: 700;
+                color: $titulos-producto;
+            }
+            &.active a {
+                color: $btn-compra;
+            }
+            a {
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 0%;
+                    height: 2px;
+                    background-color: $btn-compra;
+                    -webkit-transition: 0.2s all;
+                    transition: 0.2s all;
+                }
+                &:hover:after, &:focus:after {
+                    width: 100%;
+                }
+            }
+            &.active a:after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.rating-avg {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    .rating-stars {
+        margin-left: 10px;
+        display: inline-block;
+    }
+}
+
+.rating .rating-stars {
+    display: inline-block;
+}
+
+.rating-avg .rating-stars > i, .rating .rating-stars > i {
+    color: $bord-producto;
+}
+
+.rating-avg .rating-stars > i.fa-star {
+    color: $btn-compra;
+}
+
+.rating {
+    .rating-stars > i.fa-star {
+        color: $btn-compra;
+    }
+    li {
+        margin: 5px 0px;
+    }
+    .rating-progress {
+        position: relative;
+        display: inline-block;
+        height: 9px;
+        background-color: $bord-producto;
+        width: 120px;
+        margin: 0px 10px;
+        border-radius: 5px;
+        > div {
+            background-color: $btn-compra;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            border-radius: 5px;
+        }
+    }
+    .sum {
+        display: inline-block;
+        font-size: 12px;
+        color: $titulos-producto;
+    }
+}
+
+.reviews {
+    li {
+        position: relative;
+        padding-left: 145px;
+        margin-bottom: 30px;
+    }
+    .review-heading {
+        position: absolute;
+        width: 130px;
+        left: 0;
+        top: 0;
+        height: 70px;
+    }
+    .review-body {
+        min-height: 70px;
+    }
+    .review-heading {
+        .name {
+            margin-bottom: 5px;
+            margin-top: 0px;
+        }
+        .date {
+            color: $titulos-producto;
+            font-size: 10px;
+            margin: 0;
+        }
+        .review-rating {
+            margin-top: 5px;
+            > i {
+                color: $bord-producto;
+                &.fa-star {
+                    color: $btn-compra;
+                }
+            }
+        }
+    }
+}
+
+.reviews-pagination {
+    text-align: center;
+    li {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        background-color: #FFF;
+        border: 1px solid $bord-producto;
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+        &:hover {
+            background-color: $bord-producto;
+            color: $btn-compra;
+        }
+        &.active {
+            background-color: $btn-compra;
+            border-color: $btn-compra;
+            color: #FFF;
+            cursor: default;
+        }
+        a {
+            display: block;
+        }
+    }
+}
+
+.review-form {
+    .input {
+        margin-bottom: 15px;
+    }
+    .input-rating {
+        margin-bottom: 15px;
+        .stars {
+            display: inline-block;
+            vertical-align: top;
+            input[type="radio"] {
+                display: none;
+            }
+            > {
+                label {
+                    float: right;
+                    cursor: pointer;
+                    padding: 0px 3px;
+                    margin: 0px;
+                    &:before {
+                        content: "\f006";
+                        font-family: FontAwesome;
+                        color: $bord-producto;
+                        -webkit-transition: 0.2s all;
+                        transition: 0.2s all;
+                    }
+                    &:hover {
+                        &:before, ~ label:before {
+                            color: $btn-compra;
+                        }
+                    }
+                }
+                input:checked {
+                    label:before, ~ label:before {
+                        content: "\f005";
+                        color: $btn-compra;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/** Detalles de curso**/
+.curso-profesor {
+  position: relative;
+  h1 {
+    padding-left: 12px;
+    padding-top: 10px;
+  }
+  h3 {
+    padding-left: 25px;
+    padding-bottom: 10px;
+  }
+  img {
+    height: auto;
+    top: 0px;
+    width: 100%;
+    display: block;
+    position: relative;
+  }
+  &:before {
+    content: "";
+    left: -1px;
+    right: -1px;
+    top: -90px;
+    height: 30px;
+  }
+}
+
+.info-curso button {
+  height: 50px;
+  width: 100%;
+  position: relative;
+  border: 2px solid transparent;
+  height: 50px;
+  margin-bottom: 5px;
+  background-color: #ef233c;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 5px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  > i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    color: #D10024;
+    opacity: 0;
+    visibility: hidden;
+  }
+  :hover {
+    background-color: #FFF;
+    color: #D10024;
+    border-color: #D10024;
+    padding: 0px 30px 0px 50px;
+    > i {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+/** temario **/
+.content-temario {
+  display: flex;
+  position: relative;
+  border-top: 1px solid #D6D8DA;
+  -webkit-flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-box-align: center;
+  .content-item-temario {
+    display: flex;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    -webkit-flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-box-align: center;
+    .content-link-temario{
+      .content-link {
+        position: relative;
+        align-self: flex-start;
+        padding-top: 1px;
+        -webkit-align-self: flex-start;
+        -ms-flex-item-align: start;
+        .content-link-body {
+          float: left;
+          position: relative;
+          span[aria-label="Video"] {
+            display: block;
+            width: 23px;
+            height: 22px;
+            font-size: 22px;
+          }
+          .content-link-span {
+            position: relative;
+          }
+          .content-link-line {
+            position: absolute;
+            height: 100px;
+            width: 2px;
+            z-index: 1000;
+          }
+        }
+      }
+    }
+    .content-item-titulo {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      padding-left: 30px;
+      bottom: 10px;
+      color: #21242C;
+      max-height: 58px;
+      .content-item-texto {
+        line-height: 22px;
+        margin-bottom: 0px;
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+  }
+}

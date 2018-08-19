@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="administrador/includes/heads :: header"></head>
+  <body class="animsition">
+    <div class="page-wrapper">
+      <header th:replace="administrador/includes/menu :: header-movile"></header>
+      <aside th:replace="administrador/includes/menu :: asside"></aside>
+      <div class="page-container">
+        <header th:replace="administrador/includes/menu :: header-desktop"></header>
+        <div class="main-content"></div>
+      </div>
+    </div>
+    <div th:replace="administrador/includes/script :: scripts"></div>
+  </body>
+</html>

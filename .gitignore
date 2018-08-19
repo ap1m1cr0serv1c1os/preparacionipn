@@ -70,8 +70,21 @@ local.properties
 # Code Recommenders
 .recommenders/
 
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
 *.bin
 *.lock
 /.settings/
 /.gradle/
-/bin/

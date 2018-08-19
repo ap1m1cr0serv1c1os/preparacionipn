@@ -1,0 +1,86 @@
+.menu-container {
+    position: fixed;
+    top: 0;
+    right: -50vw;
+    width: 50vw;
+    height: 100vh;
+    background: #FFFFFF;
+    z-index: 12;
+    @include transition(all, 0.6s, ease);
+    visibility: hidden;
+    opacity: 0;
+    &.active {
+        visibility: visible;
+        opacity: 1;
+        right: 0;
+    }
+}
+
+.menu {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    padding-left: 15%;
+}
+
+.list {
+    @include transform( translateY(3.5rem) );
+    @include transition(all, 200ms, ease);
+    transition: all 1000ms 600ms ease;
+    opacity: 0;
+}
+
+.menu-container.active .list {
+    @include transform( translateY(0px) );
+    opacity: 1;
+}
+
+.item {
+    margin-bottom: 9px;
+    a {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        color: #3a3a3a;
+        @include transition(all, 200ms, ease);
+        &:hover {
+            color: #ffb606;
+        }
+    }
+}
+
+.close-container {
+    position: absolute;
+    top: 86px;
+    right: 79px;
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    @include transform( rotate(45deg) );
+}
+
+.menu-close {
+    top: 9px;
+    width: 21px;
+    height: 3px;
+    background: #3a3a3a;
+    @include transition(all, 200ms, ease);
+    &::after {
+        display: block;
+        position: absolute;
+        top: -9px;
+        left: 9px;
+        content: '';
+        width: 3px;
+        height: 21px;
+        background: #3a3a3a;
+        @include transition(all, 200ms, ease);
+    }
+}
+
+.close-container:hover .menu-close {
+    background: #ffb606;
+    &::after {
+        background: #ffb606;
+    }
+}

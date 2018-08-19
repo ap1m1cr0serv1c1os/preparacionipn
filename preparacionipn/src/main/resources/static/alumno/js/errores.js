@@ -4,8 +4,10 @@ var stylenormal = {};
 var styleerror = {};
 var type = false;
 var mailmesage = {
-	"confemail" : true
+	"confemail" : false,
+	"element": false
 };
+var lstelements = undefined;
 
 var validators = {
 		required: {
@@ -77,8 +79,30 @@ var errors = function(objectConfg) {
 		stylenormal = objectConfg.normalstyle != undefined ? objectConfg.normalstyle : { "border" : "1px solid #eee" };
 		type = objectConfg.errors !== undefined ? objectConfg.errors : false;
 		styleerror = objectConfg.errorstyle != undefined ? objectConfg.errorstyle : { "border" : "1px solid red" };
-		mailmesage = objectConfg.otherconf != undefined ? objectConfg.otherconf : { "confemail" : true };
-
+		mailmesage = objectConfg.otherconf != undefined ? objectConfg.otherconf : { "confemail" : false, "elements": false };
+		lstelements = objectConfg.lstelements != undefined ? objectConfg.lstelements : undefined;
+		if(lstelements != undefined){
+			jQuery.each(lstelements, function ( key, value ) {
+				jQuery(value).css(stylenormal);
+				if (type) {
+					jQuery("#err" + jQuery(value).attr("id") ).hide("slow");
+				}
+				if (mailmesage.confemail) {
+					jQuery("#err-email-" + jQuery(value).attr("id") ).hide("slow");
+				}
+			}
+			
+			jQuery.each(lstitems, function ( key, value ) {
+				if(jQuery(value).attr("value") !== ""){
+					jQuery(value).css(styleerror);
+					if (type) {
+						jQuery("#err" + jQuery(value).attr("id") ).show("slow");
+					}
+				}else{
+					jQuery(value).css(stylenormal);
+				}
+			});
+		}
 		for (var _i = 0, arraylst_2 = arraylst; _i < arraylst_2.length; _i++) {
 			var valoritem = arraylst_2[_i];
 			jQuery("#" + valoritem).css(stylenormal);
@@ -89,18 +113,67 @@ var errors = function(objectConfg) {
 				jQuery("#err-email-" + valoritem).hide("slow");
 			}
 		}
-		var validationes = new Validacion();
+		var validationes = new Validacion(false);
 		return validationes.getType();
 	}
 	return false;
 };
 
 var Validacion = /** @class */ (function() {
-	function Validacion() {
-	}
+	function Validacion(isElement) {
+        this.isElement = isElement;
+    }
 	Validacion.prototype.getType = function() {
 		var i = 0;
 		var operations = new OperationsValidation();
+		
+		if (this.isElement) {
+			jQuery.each(lstelements, function (key, value) {
+				var atributoId = jQuery(value).attr("id");
+				switch (jQuery(value).get(0).nodeName) {
+                    case "INPUT":{
+                    	switch (jQuery(value).attr("type")) {
+                    	case "email":{
+                    		values[i] = function(){
+	                    		var valoritem = jQuery(value).val();
+	                    		if (valoritem === "") {
+	                    			jQuery(value).css(styleerror);
+	                    			if (type) { jQuery("#err" + atributoId ).show("slow"); }
+	                    			return false;
+	                    		}
+	                    		if (this.getExpresion(valoritem, "c") === false) {
+	                    			jQuery(value).css(styleerror);
+	                    			if (mailmesage.confemail) {
+	                    				jQuery("#err-email-" + atributoId).show("slow");
+	                    			} else if (type) {
+	                    				jQuery("#err" + atributoId).show("slow");
+	                    			}
+	                    			return false;
+	                    		}
+	                    		return true;
+                    		};
+                    		}
+                    	break;
+                    	case "text":{
+                    		values[i] = operations.getValueText(value, type);
+                    		}
+                    	break;
+                    	}
+                    }
+                    break;
+                    case "TEXTAREA":{
+                            values[i] = operations.getValueText(value, type);
+                            }
+                    break;
+                    case "SELECT":{
+                    	values[i] = operations.getValueSelect(value, type);
+                    	}
+                    break;
+                    default: break;
+                }
+            });
+        }
+		
 		for (var _i = 0, arraylst_1 = arraylst; _i < arraylst_1.length; _i++) {
 			var datoItem = arraylst_1[_i];
 			switch (jQuery("#" + datoItem).get(0).nodeName) {
@@ -237,6 +310,21 @@ var clear = function(arraylst) {
 		}
 	}
 };
+var clearElements = function(lstements) {
+	jQuery.each(lstements, function ( key, value ) {
+		switch ( jQuery(value).get(0).nodeName ){
+		case "INPUT":
+			jQuery(value).val("");
+			break;
+		case "SELECT":
+			jQuery(value).selectedIndex = 0;
+			break;
+		case "TEXTAREA":
+			jQuery(value).val("");
+			break;
+		}
+	});
+}
 
 jQuery(".data-numeric").keypress(function() {
 	var operations = new OperationsValidation();

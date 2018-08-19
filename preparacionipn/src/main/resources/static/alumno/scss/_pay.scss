@@ -1,0 +1,82 @@
+.billing-details, .shiping-details {
+  margin-bottom: 30px;
+}
+
+.order-details {
+  position: relative;
+  padding: 0px 30px 30px;
+  @include bordes(1px, solid, $bord-producto);
+  &:before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: -15px;
+    height: 30px;
+    @include bordes(1px, solid, $bord-producto);
+  }
+}
+
+.order-summary {
+  margin: 15px 0px;
+  .order-col {
+    display: table;
+    width: 100%;
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    > div {
+      display: table-cell;
+      padding: 10px 0px;
+      &:first-child {
+        width: calc(100% - 150px);
+      }
+      &:last-child {
+        width: 150px;
+        text-align: right;
+      }
+    }
+    .order-total {
+      font-size: 24px;
+      color: #D10024;
+    }
+  }
+}
+
+.order-details {
+  .payment-method {
+    margin: 30px 0px;
+  }
+  .order-submit {
+    display: block;
+    margin-top: 30px;
+  }
+}
+
+.lst-detalles{
+  width: 100%;
+  .item-detalles{
+    display: inline-flex;
+    width: 100%;
+    img{
+      height: 100px;
+      width: 100px;
+      border-radius: 4px;
+    }
+  }
+}
+.item-bd{
+  width: 100%;
+  .price{
+    float: right;
+    padding-top: 0px;
+    margin-top: -100px;
+  }
+  .item-delete{
+    float: right;
+    padding-top: 0px;
+    margin-top: -60px;
+  }
+}

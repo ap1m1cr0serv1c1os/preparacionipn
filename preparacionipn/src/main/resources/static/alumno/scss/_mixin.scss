@@ -1,0 +1,49 @@
+@mixin transform($property) {
+	-webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property;
+    transform: $property;
+}
+
+@mixin transformtwo($property, $propertytwo) {
+	-webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property;
+    transform: $propertytwo;
+}
+@mixin transition($cant, $time, $type) {
+	-webkit-transition: $cant $time $type;
+	-moz-transition: $cant $time $type;
+	-ms-transition: $cant $time $type;
+	-o-transition: $cant $time $type;
+	transition: $cant $time $type;
+}
+
+@mixin bordes($pixel, $type, $color) {
+	border-top: $pixel $type $color;
+	border-left: $pixel $type $color;
+	border-right: $pixel $type $color;
+}
+
+@mixin smoothing($type, $color, $pix1, $pix2, $pix3){
+	-webkit-font-smoothing: $type;
+	-webkit-text-shadow: $color $pix1 $pix2 $pix3;
+	text-shadow: $color $pix1 $pix2 $pix3;
+}
+@mixin box-shadow($pix1, $pix2, $pix3, $color, $moz){
+	-webkit-box-shadow: $pix1 $pix2 $pix3 $color;
+	@if($moz){
+	  -moz-box-shadow: $pix1 $pix2 $pix3 $color;
+	}
+  box-shadow: $pix1 $pix2 $pix3 $color;
+}
+
+@mixin box-shadow-four($pix1, $pix2, $pix3, $pix4, $color, $moz){
+	-webkit-box-shadow: $pix1 $pix2 $pix3 $pix4 $color;
+	@if($moz){
+	  -moz-box-shadow: $pix1 $pix2 $pix3 $pix4 $color;
+	}
+  box-shadow: $pix1 $pix2 $pix3 $pix4 $color;
+}

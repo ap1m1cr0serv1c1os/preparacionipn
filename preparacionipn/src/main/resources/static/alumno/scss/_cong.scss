@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    @include smoothing(antialiased, $gris-trasparent, 0, 0, 1px);
+}
+::-webkit-scrollbar{width:0.6em;height:1em;}
+::-webkit-scrollbar-thumb{background:$applicacion-gral;border-radius:15px 15px 15px 15px;}
+::-webkit-scrollbar-track{background:#000;}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background: #FFFFFF;
+    color: $parrafos;
+    scrollbar-face-color:$applicacion-gral;scrollbar-track-color:#000;
+}
+
+div {
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 2.29;
+    font-weight: 400;
+    color: $parrafos;
+    @include smoothing(antialiased, $gris-trasparent, 0, 0, 1px);
+    a {
+        display: inline;
+        position: relative;
+        color: inherit;
+        border-bottom: solid 1px #ffa07f;
+        @include transition(all, 200ms, ease,);
+    }
+}
+
+a {
+    text-decoration: none;
+    @include smoothing(antialiased, $gris-trasparent, 0, 0, 1px);
+    &:hover, &:visited, &:active, &:link {
+        text-decoration: none;
+        @include smoothing(antialiased, $gris-trasparent, 0, 0, 1px);
+    }
+}
+
+p a {
+    &:active {
+        position: relative;
+        color: #FF6347;
+    }
+    &:hover {
+        color: #FFFFFF;
+        background: #ffa07f;
+        &::after {
+            opacity: 0.2;
+        }
+    }
+}
+
+::selection, p::selection {
+    background: #FFD266;
+    color: #C88E00;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 14px;
+}
+
+h5 {
+    font-size: 11px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    @include smoothing(antialiased, $gris-trasparent, 0, 0, 1px);
+}
+
+::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder, ::input-placeholder {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: $parrafos !important;
+}
+
+.form-control {
+    color: #db5246;
+}
+
+section {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.clear {
+    clear: both;
+}
+
+.clearfix {
+    &::before {
+        content: "";
+        display: table;
+    }
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    zoom: 1;
+}
+
+.float_left {
+    float: left;
+}
+
+.float_right {
+    float: right;
+}
+
+.trans_200 { @include transition(all, 200ms, ease); }
+
+.trans_300 { @include transition(all, 300ms, ease); }
+
+.trans_400 { @include transition(all, 400ms, ease); }
+
+.trans_500 { @include transition(all, 500ms, ease); }
+
+.fill_height {
+    height: 100%;
+}
+
+.container-pz {
+    width: 100%;
+    overflow: hidden;
+}
+
+.prlx_parent {
+    overflow: hidden;
+}
+
+.prlx {
+    height: 130% !important;
+}
+
+.nopadding {
+    padding: 0px !important;
+}
+.home
+{
+    width: 100%;
+    height: 100vh;
+}
+.logo-container{
+    display: inline-block;
+    padding-left: 76px;
+}
+.logo span{
+    height: 50%; width: 50%
+}
+.toggle
+{
+    position: absolute;
+    top: 50%;
+    @include transform( translateY(-50%) );
+    right: 20px;
+    display: none;
+    z-index: 1000000;
+    cursor: pointer;
+}
+.toggle i
+{
+    font-size: 24px;
+    padding: 10px;
+    color: #3a3a3a;
+}
+.toggle:hover i
+{
+    color: #ffb606;
+}
+.img-wall {
+  background-attachment: fixed;
+  &:before {
+    display: block;
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+}
