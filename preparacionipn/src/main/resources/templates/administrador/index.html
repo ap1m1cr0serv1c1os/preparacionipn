@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<<<<<<< HEAD
   <head th:replace="administrador/includes/head :: header"></head>
+=======
+  <head th:replace="administrador/includes/heads :: header"></head>
+>>>>>>> 0582c89ae5cc2445c278ca33d74a465800da3ec4
   <body class="animsition">
     <div class="page-wrapper">
       <header th:replace="administrador/includes/menu :: header-movile"></header>
@@ -8,6 +12,7 @@
       <div class="page-container">
         <header th:replace="administrador/includes/menu :: header-desktop"></header>
         <div class="main-content">
+<<<<<<< HEAD
         	<div class="section__content section__content--p30">
 	<div class="container-fluid">
 		<div class="row">
@@ -51,6 +56,51 @@
 		</div>
 	</div>
 </div>
+=======
+          <div class="section__content section__content--p30">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="overview-wrap">
+                    <h2 class="title-1">Administradores</h2>
+                    <button class="au-btn au-btn-icon au-btn--blue" onclick="getItem(this);" href-to-view-back="false" href-to-view="administradores/crud">
+                      <i class="zmdi zmdi-plus"></i>Agregar nuevo
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="row m-t-30">
+                <div class="col-md-12">
+                  <div class="table-responsive m-b-40">
+                    <table class="table table-borderless table-data3">
+                      <thead>
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Correo</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Fernando acosta</td>
+                          <td>fernando@gmail.com</td>
+                          <td>
+                            <button class="btn btn-warning" onclick="getItem(this);" href-to-view-back="false" href-to-view="administradores/crud" href-to-view-data="1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar">
+                              <i class="zmdi zmdi-edit"></i>
+                            </button>
+                            <button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Eliminar">
+                              <i class="zmdi zmdi-delete"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+>>>>>>> 0582c89ae5cc2445c278ca33d74a465800da3ec4
         </div>
       </div>
     </div>
