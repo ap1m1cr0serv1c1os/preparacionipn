@@ -375,7 +375,17 @@ var clearElements = function(lstements) {
 	jQuery.each(lstements, function ( key, value ) {
 		switch ( jQuery(value).get(0).nodeName ){
 		case "INPUT":
-			jQuery(value).val("");
+			switch (jQuery(value).attr("type")) {
+				case "checkbox": {
+					jQuery(value).prop('checked', false);
+				}
+				break;
+				case "radio": {
+					jQuery(value).prop('checked', false);
+				}
+				break;
+				default: jQuery(value).val(""); break;
+			}
 			break;
 		case "SELECT":
 			jQuery(value).selectedIndex = 0;
