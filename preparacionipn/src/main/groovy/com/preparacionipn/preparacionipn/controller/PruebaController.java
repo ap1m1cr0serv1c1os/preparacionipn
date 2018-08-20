@@ -37,7 +37,7 @@ public class PruebaController {
 	    greet.setId( id );
 	    greet.setContent("Un titulo");
 	    model.addAttribute("greet", greet);
-        return "administrador/secciones/admins/crud";
+        return "administrador/componentes/admins/crud";
     }
 	
 	@PostMapping("/admin/crud")

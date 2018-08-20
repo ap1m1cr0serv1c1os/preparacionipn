@@ -353,7 +353,6 @@ var OperationsValidationElements = /** @class */ (function () {
     return OperationsValidationElements;
 }());
 
-
 var clear = function(arraylst) {
 	for (var _i = 0, arraylst_3 = arraylst; _i < arraylst_3.length; _i++) {
 		var itemClear = arraylst_3[_i];

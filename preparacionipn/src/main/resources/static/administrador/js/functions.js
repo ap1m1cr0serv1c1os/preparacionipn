@@ -80,3 +80,8 @@ function validate( idElement, lstElements ){
 	});
 	return result;
 }
+
+function isValidType( idElement ){
+	$(idElement).attr("pattern");
+}
+
