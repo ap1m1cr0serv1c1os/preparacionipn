@@ -4,8 +4,8 @@ function sendData( idElement ) {
 		var objetoAdmin = convertToObject(lstElements.filter(function( item ){
 			return listSend( idElement ).includes( $(this).attr("id") ) ? false : true;
 			}));
-		$.post( $(idElement).attr("href-post"), objetoAdmin);
-		if( $(idElement).attr("onclear") == "true"){
+		$.post( $(idElement).attr("data-href-post"), objetoAdmin);
+		if( $(idElement).attr("data-onclear") == "true"){
 			clearElements($(".valid-errors").find("input").filter(function( item ){
 				return listValid( idElement).includes( $(this).attr("id") ) ? false : true;
 			}));
@@ -41,7 +41,7 @@ $(".sendDataMeta").on("submit", function(e){
     var idElement = $(".sendmeta");
     if( validate( idElement, lstElements ) ){
     	$.ajax({
-            url: $(idElement).attr("href-post"),
+            url: $(idElement).attr("data-href-post"),
             type: "post",
             dataType: "html",
             data: formData,
@@ -51,7 +51,7 @@ $(".sendDataMeta").on("submit", function(e){
         }).done(function(res){
             
         });
-    	if( $(idElement).attr("onclear") == "true"){
+    	if( $(idElement).attr("data-onclear") == "true"){
 			clearElements($(".valid-errors").find("input").filter(function( item ){
 				return listValid( idElement).includes( $(this).attr("id") ) ? false : true;
 			}));
@@ -61,11 +61,11 @@ $(".sendDataMeta").on("submit", function(e){
 });
 
 function listSend( idElement ){
-	return $(idElement).attr("onsend") != "[]" ? JSON.parse( $(idElement).attr("onsend") ) : [];
+	return $(idElement).attr("data-onsend") != "[]" ? JSON.parse( $(idElement).attr("data-onsend") ) : [];
 }
 
 function listValid( idElement ){
-	return $(idElement).attr("onvalid") != "[]" ? JSON.parse( $(idElement).attr("onvalid") ) : [];
+	return $(idElement).attr("data-onvalid") != "[]" ? JSON.parse( $(idElement).attr("data-onvalid") ) : [];
 }
 
 function validate( idElement, lstElements ){	

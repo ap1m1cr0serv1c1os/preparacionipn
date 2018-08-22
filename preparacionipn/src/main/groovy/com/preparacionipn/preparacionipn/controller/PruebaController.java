@@ -24,6 +24,11 @@ public class PruebaController {
         return "alumno/login";
     }
 	
+	@GetMapping("/admin/pagos")
+	public String getPagosAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+        return "administrador/componentes/admins/index";
+    }
+	
 	@GetMapping("/admin/index")
     public String getIndexAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
         return "administrador/index";

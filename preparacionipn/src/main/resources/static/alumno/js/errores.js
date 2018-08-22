@@ -433,14 +433,14 @@ var convertToObject = function(lstements){
 
 jQuery(".data-numeric").keypress(function() {
 	var operations = new OperationsValidation();
-	if (operations.getExpresion(jQuery(".data-numeric").val(), "n")) {
-		jQuery(".data-numeric").val("");
+	if (operations.getExpresion(jQuery(this).val(), "n")) {
+		jQuery(this).val("");
 	}
 });
 
 jQuery(".data-decimal").keypress(function() {
 	var operations = new OperationsValidation();
-	if (operations.getExpresion(jQuery(".data-decimal").val(), "n")) {
-		jQuery(".data-decimal").val("");
+	if (operations.getExpresion(jQuery(this).val(), "n")) {
+		jQuery(this).val("");
 	}
 });

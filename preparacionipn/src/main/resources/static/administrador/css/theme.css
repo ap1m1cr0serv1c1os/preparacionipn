@@ -1468,6 +1468,26 @@ section {
     vertical-align: middle;
 }
 
+.account-dropdown__item span {
+    display: block;
+    color: #333;
+    padding: 15px 25px;
+    font-size: 14px;
+}
+
+.account-dropdown__item span:hover {
+    background: #4272d7;
+    color: #fff;
+    cursor: pointer;
+}
+
+.account-dropdown__item span i {
+    line-height: 1;
+    margin-right: 20px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
 .account-dropdown__body {
     padding: 12px 0;
 }
@@ -1555,6 +1575,13 @@ section {
     padding: 15px 0;
 }
 
+.navbar-sidebar .navbar__list li span {
+    display: block;
+    color: #555;
+    font-size: 16px;
+    padding: 15px 0;
+}
+
 .navbar-sidebar .navbar__list li a i {
     margin-right: 19px;
 }
@@ -1564,6 +1591,18 @@ section {
 }
 
 .navbar-sidebar .navbar__list li.active > a {
+    color: #4272d7;
+}
+.navbar-sidebar .navbar__list  li span i {
+    margin-right: 19px;
+}
+
+.navbar-sidebar .navbar__list li span:hover {
+    color: #4272d7;
+    cursor: pointer;
+}
+
+.navbar-sidebar .navbar__list li.active > span {
     color: #4272d7;
 }
 
