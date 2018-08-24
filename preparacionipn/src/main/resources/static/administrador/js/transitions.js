@@ -43,3 +43,19 @@ function getItem(id) {
 	}
 	
 }
+
+function getItemOnLoad(){
+	$.ajax({
+		type : "get",
+		url : "/admin/index",
+		cache : false,
+		success : function(dato) {
+			$(".main-content").fadeOut("slow", function() {
+				$(this).html(dato).slideDown("slow");
+			});
+		},
+		error : function(XMLHttpRequest, textStatus, errorthrows) {
+			alert('Error: ' + errorthrows);
+		}
+	});
+}

@@ -9,69 +9,6 @@ var mailmesage = {
 };
 var lstelements = undefined;
 
-var validators = {
-		required: {
-				name: 'required',
-				type: 'required',
-				message: 'Campo requerido'
-		},
-		minlength: {
-				name: 'minlength',
-				type: 'minlength',
-				message: 'El campo es menor que {0} caracteres'
-		},
-		maxlength: {
-				name: 'maxlength',
-				type: 'maxlength',
-				message: 'El campo es mayor que {0} caracteres'
-		},
-		date: {
-				name: 'date',
-				type: 'regex',
-				regex: new RegExp([
-						'^',
-						'(19|20)[0-9]{2}',
-						'-',
-						'(0[1-9]|1[012])',
-						'-',
-						'(0[1-9]|[12][0-9]|3[01])',
-						'$'
-				].join('')),
-				message: 'El campo no es correcto'
-		},
-		email: {
-				name: '',
-				type: 'regex',
-				regex: new RegExp([
-						'^',
-						'[a-zA-Z0-9._%+-]+',
-						'@',
-						'[a-zA-Z0-9.-]+',
-						'[.][a-zA-Z]{2,4}',
-						'$'
-				].join('')),
-				message: 'El contenido no es un correo válido'
-		},
-		integer: {
-				name: 'integer',
-				type: 'regex',
-				regex: '^(0|[-]?[1-9]([0-9]+)?)$',
-				message: 'El campo no es un valor válido'
-		},
-		integerpositive: {
-				name: 'integerpositive',
-				type: 'regex',
-				regex: '^[1-9]([0-9]+)?$',
-				message: 'El campo no es un numero positivo'
-		},
-		integernegative: {
-				name: 'integernegative',
-				type: 'regex',
-				regex: '^[-][1-9]([0-9]+)?$',
-				message: 'El campo no es un numero negativo'
-		}
-};
-
 var errors = function(objectConfg) {
 	if (objectConfg != undefined) {
 

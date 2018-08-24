@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<title>Cursos</title>
+	<meta charset="utf-8">
 	<head th:replace="alumno/includes/heads :: header"></head>
 	<body>
 		<div class="container-pz">
@@ -21,13 +23,13 @@
 								</div>
 							</div>
   						<div class="aside">
-  							<h3 class="aside-title">CategorÌas</h3>
+  							<h3 class="aside-title">Categor√≠as</h3>
   							<div class="checkbox-filter">
   								<div class="input-checkbox">
   									<input type="checkbox" id="category-2">
   									<label for="category-2">
   										<span></span>
-  										Matem·ticas
+  										Matem√°ticas
   										<small>(1)</small>
   									</label>
   								</div>
@@ -35,7 +37,7 @@
   									<input type="checkbox" id="category-6">
   									<label for="category-6">
   										<span></span>
-  										FÌsica
+  										F√≠sica
   										<small>(1)</small>
   									</label>
   								</div>
@@ -175,8 +177,8 @@
     		</button>
 		</div>
 		<div th:replace="alumno/includes/script :: scripts"></div>
-		<script src="assets/js/funtions.js"></script>
-		<script type="text/javascript" src="assets/js/errores.js"></script>
+		<script th:src="@{/alumno/js/funtions.js}"></script>
+		<script type="text/javascript" th:src="@{/alumno/js/errores.js}"></script>
     	<script type="text/javascript">
 	      	$("#btnpagar").click(function(){
 		        var result = errors({

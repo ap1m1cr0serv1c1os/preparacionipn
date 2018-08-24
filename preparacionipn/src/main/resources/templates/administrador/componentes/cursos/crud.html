@@ -1,0 +1,193 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<meta charset="UTF-8">
+	<div class="section__content section__content--p30">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="overview-wrap">
+						<button class="au-btn au-btn-icon au-btn--blue"
+							onclick="getItem(this);" data-href-to-view-back="false"
+							data-href-to-view="administradores/index">
+							<i class="fas fa-chevron-left"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="row  m-t-30">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<h4>{{ Nombre curso }}</h4>
+						</div>
+						<div class="card-body">
+							<div class="default-tab">
+								<nav>
+									<div class="nav nav-tabs" id="nav-tab" role="tablist">
+										<a class="nav-item nav-link active" id="nav-home-tab"
+											data-toggle="tab" href="#nav-home" role="tab"
+											aria-controls="nav-home" aria-selected="true">Información</a>
+										<a class="nav-item nav-link" id="nav-profile-tab"
+											data-toggle="tab" href="#nav-profile" role="tab"
+											aria-controls="nav-profile" aria-selected="false">Grupo</a> <a
+											class="nav-item nav-link" id="nav-contact-tab"
+											data-toggle="tab" href="#nav-contact" role="tab"
+											aria-controls="nav-contact" aria-selected="false">Materiales</a>
+									</div>
+								</nav>
+								<div class="tab-content pl-3 pt-2" id="nav-tabContent">
+									<div class="tab-pane fade show active" id="nav-home"
+										role="tabpanel" aria-labelledby="nav-home-tab">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="row">
+													<div class="col-md-6" style="padding: 10%;">
+														<div class="mx-auto d-block">
+															<div id="imagePreview"></div>
+															<form enctype="multipart/form-data">
+																<div class="location text-sm-center  m-t-30">
+																	<div class="custom-file">
+																		<!-- data-image-size="W,H" -->
+																		<input type="file" onchange="setArchive(this);" data-progress="progressimgp"
+																			class="custom-file-input" id="customFileLang" data-image-size="900,900" 
+																			lang="es" accept=".png,.jpeg,.jpg,.gif" data-preview="imagePreview"
+																			data-loaded="false"> <label
+																			class="custom-file-label" for="customFileLang">Seleccionar
+																			Archivo</label>
+																	</div>
+																</div>
+	
+																<div class="location text-sm-center  m-t-30">
+																	<progress id="progressimgp" style="display: none;"
+																		value="1" max="100"></progress>
+																	<input type="button" class="btn btn-success"
+																		value="Cambiar imagen" />
+																</div>
+															</form>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<form>
+															<div class="row form-group">
+																<div class="col col-md-3">
+																	<label for="textarea-input" class=" form-control-label">Descripción</label>
+																</div>
+																<div class="col-12 col-md-9">
+																	<textarea name="textarea-input" id="textarea-input"
+																		rows="5" class="form-control"></textarea>
+																</div>
+															</div>
+															<div class="row form-group">
+																<div class="col col-md-3">
+																	<label for="textarea-input" class=" form-control-label">Resumen</label>
+																</div>
+																<div class="col-12 col-md-9">
+																	<textarea name="textarea-input" id="textarea-input"
+																		rows="5" class="form-control"></textarea>
+																</div>
+															</div>
+															<div class="row form-group">
+																<div class="col col-md-3">
+																	<label for="textarea-input" class=" form-control-label">Costo</label>
+																</div>
+																<div class="col-12 col-md-9">
+																	<div class="input-group mb-3">
+																		<div class="input-group-prepend">
+																			<span class="input-group-text">$</span>
+																		</div>
+																		<input type="text" class="form-control" pattern="[0-9]">
+																	</div>
+																</div>
+															</div>
+															<div class="form-group">
+																<input type="button" class="btn btn-success"
+																	value="Guardar cambios" /> <input type="button"
+																	class="btn btn-success" value="Eliminar" />
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="tab-pane fade" id="nav-profile" role="tabpanel"
+										aria-labelledby="nav-profile-tab"></div>
+									<div class="tab-pane fade" id="nav-contact" role="tabpanel"
+										aria-labelledby="nav-contact-tab">
+										<div class="row">
+											<div class="col-4">
+												<div class="list-group" id="list-tab" role="tablist">
+													<a class="list-group-item list-group-item-action active"
+														id="list-home-list" data-toggle="list" href="#list-home"
+														role="tab" aria-controls="home">Tema I</a> <a
+														class="list-group-item list-group-item-action"
+														id="list-profile-list" data-toggle="list"
+														href="#list-profile" role="tab" aria-controls="profile">Tema
+														II</a> <a class="list-group-item list-group-item-action"
+														id="list-messages-list" data-toggle="list"
+														href="#list-messages" role="tab" aria-controls="messages">Tema
+														III</a> <a class="list-group-item list-group-item-action"
+														id="list-settings-list" data-toggle="list"
+														href="#list-settings" role="tab" aria-controls="settings">Tema
+														IV</a>
+												</div>
+											</div>
+											<div class="col-8">
+												<div class="tab-content" id="nav-tabContent">
+													<div class="tab-pane fade show active" id="list-home"
+														role="tabpanel" aria-labelledby="list-home-list">
+														<div class="row form-group">
+															<div class="col-md-12">
+																<select name="multiple-select" id="multiple-select"
+																	multiple="" class="form-control">
+																	<option value="1">Recurso #1</option>
+																	<option value="2">Recurso #2</option>
+																	<option value="3">Recurso #3</option>
+																	<option value="4">Recurso #4</option>
+																	<option value="5">Recurso #5</option>
+																	<option value="6">Recurso #6</option>
+																	<option value="7">Recurso #7</option>
+																	<option value="8">Recurso #8</option>
+																	<option value="9">Recurso #9</option>
+																	<option value="10">Recurso #10</option>
+																</select>
+															</div>
+														</div>
+														<form action="" method="POST">
+															<div class="row">
+																<div class="col-md-6">
+																	<div class="input-group mb-3">
+																		<div class="input-group-prepend">
+																			<button class="btn btn-outline-secondary"
+																				type="button" id="button-addon1">Buscar</button>
+																		</div>
+																		<input type="text" class="form-control" placeholder=""
+																			aria-label="Example text with button addon"
+																			aria-describedby="button-addon1">
+																	</div>
+																</div>
+																<div class="col-md-6 text-right">
+																	<input class="btn btn-success" type="button"
+																		value="Agregar" />
+																</div>
+															</div>
+														</form>
+													</div>
+													<div class="tab-pane fade" id="list-profile" role="tabpanel"
+														aria-labelledby="list-profile-list">...</div>
+													<div class="tab-pane fade" id="list-messages"
+														role="tabpanel" aria-labelledby="list-messages-list">...</div>
+													<div class="tab-pane fade" id="list-settings"
+														role="tabpanel" aria-labelledby="list-settings-list">...</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</html>

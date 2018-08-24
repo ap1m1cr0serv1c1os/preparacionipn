@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<title>Contacto</title>
+	<meta charset="utf-8">
 	<head th:replace="alumno/includes/heads :: header"></head>
 	<body>
 		<div class="container-pz">
@@ -16,7 +18,7 @@
             <div class="col-md-4">
               <div class="footer">
                 <h3 class="footer-title">Nosotros</h3>
-                <p>Wilfrido Massieu 310 y 684, <br>Col. Planetario Lindavista. CDMX, México.<br>Lunes a Domingo de 9 am a 8 pm</p>
+                <p>Wilfrido Massieu 310 y 684, <br>Col. Planetario Lindavista. CDMX, MÃ©xico.<br>Lunes a Domingo de 9 am a 8 pm</p>
                 <ul class="footer-links">
                   <li><a href="#"><i class="fa fa-phone"></i>(55) 8436 9486</a></li>
                   <li><a href="#"><i class="fa fa-phone"></i>(55) 7822 0963</a></li>
@@ -25,7 +27,7 @@
             </div>
             <div class="col-md-8">
               <div style="width: 100%">
-                <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&height=400&hl=es&coord=19.496737,-99.1425129&q=Wilfrido%20Massieu%20310%20Col.%20Planetario%20Lindavista.+(IPN)&ie=UTF8&t=&z=17&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/crear-un-mapa-de-google/">Crear mapa interactivo</a> by <a href="https://www.mapsdirections.info/">Mapa España</a></iframe>
+                <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&height=400&hl=es&coord=19.496737,-99.1425129&q=Wilfrido%20Massieu%20310%20Col.%20Planetario%20Lindavista.+(IPN)&ie=UTF8&t=&z=17&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/crear-un-mapa-de-google/">Crear mapa interactivo</a> by <a href="https://www.mapsdirections.info/">Mapa EspaÃ±a</a></iframe>
               </div>
             </div>
           </div>
@@ -49,8 +51,8 @@
     		</button>
 		</div>
 		<div th:replace="alumno/includes/script :: scripts"></div>
-		<script src="assets/js/funtions.js"></script>
-		<script type="text/javascript" src="assets/js/errores.js"></script>
+		<script th:src="@{/alumno/js/funtions.js}"></script>
+		<script type="text/javascript" th:src="@{/alumno/js/errores.js}"></script>
     	<script type="text/javascript">
 		/*(function (d, s, id) {
 				var js, fjs = d.getElementsByTagName(s)[0];

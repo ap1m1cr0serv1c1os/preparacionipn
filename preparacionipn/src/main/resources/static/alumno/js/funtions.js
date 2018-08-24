@@ -225,7 +225,7 @@ $(document).ready(function(){
 			testAPI();
 		} else {
 			$(".sesion a").text("Iniciar sesión");
-			$(".sesion a").attr("href","login.html");
+			$(".sesion a").attr("href","/login");
 			if( $(".menu-alumno").val() != undefined){
 				window.location.href = './';
 			}
@@ -262,7 +262,7 @@ $(document).ready(function(){
 	function testAPI() {
 		FB.api('/me', function(response) {
 			$(".sesion a").html(response.name);
-			$(".sesion a").attr("href","perfil.html");
+			$(".sesion a").attr("href","/perfil");
 		});
 	}
 
