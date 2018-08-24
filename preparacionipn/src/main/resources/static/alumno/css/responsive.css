@@ -138,6 +138,12 @@
 	.newsletter_submit_btn{
 		margin-top: 15px;
 	}
+	.error-container .bubble{
+    height: 80px;
+    width: 80px;
+		font-size: 52px;
+		line-height: 80px;
+	}
 }
 
 @media only screen and (max-width: 575px){
@@ -145,6 +151,12 @@
 	p{font-size:13px;}
 	.header{
 		height: 74px;
+	}
+	.error-container .bubble{
+    height: 80px;
+    width: 80px;
+		font-size: 52px;
+		line-height: 80px;
 	}
 	.logo_container{
 		padding-left: 15px;
@@ -246,6 +258,12 @@
 	.header	{
 		height: 60px;
 		top: 15px;
+	}
+	.error-container .bubble{
+    height: 80px;
+    width: 80px;
+		font-size: 52px;
+		line-height: 80px;
 	}
 	.hero_slide_content h1{
 		font-size: 28px;

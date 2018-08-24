@@ -278,3 +278,35 @@ function logout(redirectUrl) {
 		}
 	});
 }
+
+///Vista para errores
+function getNumbers(numberf,numbers, numbert){
+	var loop1, loop2, loop3, i = 0, number;
+	loop3 = setInterval(function(){
+		if(i > 40){
+			clearInterval(loop3);
+			$("#numberf").html(numberf);
+		}else{
+			$("#numberf").html( Math.floor(Math.random() * 11) + 1 );
+			i++;
+		}
+	}, 30);
+	loop2 = setInterval(function(){
+		if(i > 80){
+			clearInterval(loop3);
+			$("#numbers").html(numbers);
+		}else{
+			$("#numbers").html( Math.floor(Math.random() * 11) + 1 );
+			i++;
+		}
+	}, 30);
+	loop1 = setInterval(function(){
+		if(i > 100){
+			clearInterval(loop3);
+			$("#numbert").html(numbert);
+		}else{
+			$("#numbert").html( Math.floor(Math.random() * 11) + 1 );
+			i++;
+		}
+	}, 30);
+}

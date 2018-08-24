@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>UPS!!!!</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" th:href="@{/alumno/css/bootstrap4/bootstrap.min.css}">
+		<link th:href="@{/alumno/css/fontawesome/css/fontawesome-all.css}" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" th:href="@{/alumno/scss/main-client.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/alumno/css/responsive.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/alumno/css/errores.css}">
+	</head>
+	<body onload="getNumbers(4,0,3);">
+		<div class="login-page">
+			<div class="container">
+				<div class="error-container">
+					<div class="bubble" id="numberf"></div>
+					<div class="bubble" id="numbers"></div>
+					<div class="bubble" id="numbert"></div>
+				</div>
+				<div class="error-container-text">
+					<p>Hola perros</p>
+				</div>
+			</div>
+		</div>
+		<script th:src="@{/alumno/js/jquery-3.2.1.min.js}"></script>
+		<script th:src="@{/alumno/js/jquery.backstretch.min.js}"></script>
+		<script th:src="@{/alumno/css/bootstrap4/popper.js}"></script>
+		<script th:src="@{/alumno/css/bootstrap4/bootstrap.min.js}"></script>
+		<script th:src="@{/alumno/scrollmagic/ScrollMagic.min.js}"></script>
+		<script type="text/javascript" th:src="@{/alumno/js/errores.js}"></script>
+		<script type="text/javascript" src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+		<script th:src="@{/alumno/js/sesiones.js}"></script>
+		<script th:src="@{/alumno/js/funtions.js}"></script>
+	</body>
+</html>
