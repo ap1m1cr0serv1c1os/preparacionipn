@@ -26,12 +26,79 @@ public class PruebaController {
 	
 	@GetMapping("/admin/pagos")
 	public String getPagosAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
-        return "administrador/componentes/admins/index";
+        return "administrador/componentes/pagos/index";
+    }
+	
+	@GetMapping("/admin/estudiantes")
+	public String getEstudiantesAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+        return "administrador/componentes/estudiantes/index";
+    }
+	
+	@GetMapping("/admin/estudiantes/edit/{id}")
+    public String getEstudianteAdmin(
+    		@RequestParam(value="_", required=false) String clave, 
+    		@PathVariable(name = "id") int id, Model model) {
+	    Greeting greet = new Greeting();
+	    greet.setId( id );
+	    greet.setContent("Un titulo");
+	    model.addAttribute("greet", greet);
+        return "administrador/componentes/estudiantes/detalles";
+    }
+	
+	@GetMapping("/admin/profesores")
+	public String getProfesoresAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+        return "administrador/componentes/profesores/index";
+    }
+	
+	@GetMapping("/admin/profesores/edit/{id}")
+    public String getProfesorAdmin(
+    		@RequestParam(value="_", required=false) String clave, 
+    		@PathVariable(name = "id") int id, Model model) {
+	    Greeting greet = new Greeting();
+	    greet.setId( id );
+	    greet.setContent("Un titulo");
+	    model.addAttribute("greet", greet);
+        return "administrador/componentes/profesores/crud";
+    }
+	
+	@GetMapping("/admin/platicas")
+	public String getPlaticasAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+        return "administrador/componentes/platicas/index";
     }
 	
 	@GetMapping("/admin/cursos")
 	public String getCursoAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
         return "administrador/componentes/cursos/index";
+    }
+	
+	@GetMapping("/admin/clases")
+	public String getClasesAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+        return "administrador/componentes/clases/index";
+    }
+	
+	@GetMapping("/admin/asesorias")
+	public String getAsesoriasAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+        return "administrador/componentes/asesorias/index";
+    }
+	
+	@GetMapping("/admin/examenes")
+	public String getExamenesAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+        return "administrador/componentes/examenes/index";
+    }
+	
+	@GetMapping("/admin/bolsa")
+	public String getBolsaAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+        return "administrador/componentes/bolsa/index";
+    }
+	
+	@GetMapping("/admin/perfil")
+	public String getPerfilAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+        return "administrador/componentes/perfil/index";
+    }
+	
+	@GetMapping("/admin/config")
+	public String getConfigAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+        return "administrador/componentes/config/index";
     }
 	
 	@GetMapping("/admin")

@@ -1,0 +1,98 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="overview-wrap">
+                  <button class="au-btn au-btn-icon au-btn--blue" data-href="estudiantes" onclick="getItem(this);" data-href-to-menu="estudiantes"  data-href-to-view="/admin/estudiantes">
+                    <i class="fas fa-chevron-left"></i></button>
+              </div>
+          </div>
+      </div>
+      <div class="row m-t-30">
+          <div class="col-md-12">
+            <div class="card">
+                  <div class="card-header">Detalles de {{Nombre del alumno}} </div>
+                  <div class="card-body">
+                    <form action="" method="post" novalidate="novalidate" class="valid-errors">
+                      <div class="row">
+                        <div class="col-md-12">
+                        	<div class="row">
+                        		<div class="col-md-4">
+		                        	<div class="form-group">
+		                              	<label for="strnombre" class="control-label mb-1">Nombre</label>
+		                              	<input id="strnombre" th:value="${greet.id}" name="strnombre" type="text" class="form-control">
+		                          	</div>
+	                          	</div>
+	                          	<div class="col-md-4">
+		                          	<div class="form-group">
+		                              	<label for="strapellidop" class="control-label mb-1">Apellido paterno</label>
+		                              	<input id="strapellidop" th:value="${greet.content}" name="strapellidop" type="text" class="form-control">
+		                          	</div>
+		                        </div>
+		                        <div class="col-md-4">
+		                          	<div class="form-group">
+		                              	<label for="strapellidom" class="control-label mb-1">Apellido materno</label>
+		                              	<input id="strapellidom" name="strapellidom" type="text" class="form-control">
+		                          	</div>
+		                        </div>
+                        	</div>
+                        </div>
+                        <div class="col-md-12">
+                        	<div class="row">
+                        		<div class="col-md-10">
+                        			<div class="form-group">
+			                            <label for="strdireccion" class="control-label mb-1">Dirección</label>
+			                            <input id="strdireccion" name="strdireccion" type="text" class="form-control">
+			                        </div>
+                        		</div>
+                        		<div class="col-md-2">
+                        			<div class="form-group">
+			                            <label for="strcp" class="control-label mb-1">CP</label>
+			                            <input id="strcp" name="strcp" type="text" class="form-control">
+			                        </div>
+                        		</div>
+                        	</div>
+                        </div>
+                        <div class="col-md-12">
+                        	<div class="row">
+                        		<div class="col-md-6">
+                        			<div class="form-group">
+			                            <label for="strcorreo" class="control-label mb-1">Correo</label>
+			                            <input id="strcorreo" name="strcorreo" type="email" class="form-control">
+			                        </div>
+                        		</div>
+                        		<div class="col-md-6">
+                        			<div class="form-group">
+			                            <label for="strtelefono" class="control-label mb-1">Teléfono</label>
+			                            <input id="strtelefono" name="strtelefono" type="text" class="form-control">
+			                        </div>
+                        		</div>
+                        	</div>
+                        </div>
+                        <div class="col-md-12">
+                        	<div class="row">
+                        		<div class="col-md-6">
+                        			<div class="form-group">
+			                            <label for="strtutor" class="control-label mb-1">Tutor</label>
+			                            <input id="strtutor" name="strtutor" type="text" class="form-control">
+			                        </div>
+                        		</div>
+                        		<div class="col-md-6">
+                        			<div class="form-group">
+			                            <label for="strtelefonotutor" class="control-label mb-1">Teléfono de tutor</label>
+			                            <input id="strtelefonotutor" name="strtelefonotutor" type="text" class="form-control">
+			                        </div>
+                        		</div>
+                        	</div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
+</html>

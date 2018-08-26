@@ -1,0 +1,69 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<meta charset="UTF-8">
+	<div class="section__content section__content--p30">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="overview-wrap">
+						<h2 class="title-1">Profesores</h2>
+						<button class="au-btn au-btn-icon au-btn--blue"
+							onclick="getItem(this);" data-href-to-menu="index"
+							data-href-to-view="/admin/profesores/edit">
+							<i class="zmdi zmdi-plus"></i>Agregar nuevo
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="row m-t-30">
+				<div class="col-md-12">
+					<div class="table-data__tool">
+						<div class="table-data__tool-right">
+							<form class="form-header" action="" method="POST">
+								<input class="au-input au-input--xl" type="text" name="search" />
+								<button class="au-btn--submit" type="submit">
+									<i class="zmdi zmdi-search"></i>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row m-t-30">
+				<div class="col-md-12">
+					<div class="table-responsive m-b-40">
+						<table class="table table-borderless table-data3">
+							<thead>
+								<tr>
+									<th>Nombre</th>
+									<th>Apellidos</th>
+									<th>Dirección</th>
+									<th>Correo</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Fernando</td>
+									<td>Acosta Juarez</td>
+									<td>Calle No. 92</td>
+									<td>fernando@gmail.com</td>
+									<td>
+										<button class="btn btn-warning" onclick="getItem(this);"
+											data-href-to-view="/admin/estudiantes/edit" data-href-to-view-data="1"
+											data-toggle="tooltip" data-placement="top">
+											<i class="zmdi zmdi-search"></i>
+										</button>
+										<button class="btn btn-danger" data-toggle="tooltip"
+											data-placement="top">
+											<i class="zmdi zmdi-delete"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</html>
