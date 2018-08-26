@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.preparacionipn.preparacionipn.model.Administrador;
+import com.preparacionipn.preparacionipn.model.Alumno;
 import com.preparacionipn.preparacionipn.model.Greeting;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,10 +39,21 @@ public class PruebaController {
     public String getEstudianteAdmin(
     		@RequestParam(value="_", required=false) String clave, 
     		@PathVariable(name = "id") int id, Model model) {
-	    Greeting greet = new Greeting();
-	    greet.setId( id );
-	    greet.setContent("Un titulo");
-	    model.addAttribute("greet", greet);
+	    Alumno alumno = new Alumno();
+	    alumno.setIdAlumno( id );
+	    alumno.setNombre("Alfonso");
+	    alumno.setApellidoPaterno("Vásquez");
+	    alumno.setApellidoMaterno("Cortes");
+	    alumno.setEmail("alvaco93@gmail.com");
+	    alumno.setDireccion("Av. Juarez 93");
+	    alumno.setTelefono("5550824884");
+	    alumno.setIdFacebook("56464645865425");
+	    alumno.setTutor("Andrea Cortes Martinez");
+	    alumno.setTelefonoTutor("7351234775");
+	    alumno.setCiudad("Morelos");
+	    alumno.setCodigoPostal(62920);
+	    alumno.setMunicipio("Tepalcingo");
+	    model.addAttribute("alumno", alumno);
         return "administrador/componentes/estudiantes/detalles";
     }
 	

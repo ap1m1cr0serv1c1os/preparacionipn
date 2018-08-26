@@ -21,20 +21,20 @@
                         	<div class="row">
                         		<div class="col-md-4">
 		                        	<div class="form-group">
-		                              	<label for="strnombre" class="control-label mb-1">Nombre</label>
-		                              	<input id="strnombre" th:value="${greet.id}" name="strnombre" type="text" class="form-control">
+		                              	<label for="nombre" class="control-label mb-1">Nombre</label>
+		                              	<input id="nombre" th:value="${alumno.nombre}" name="nombre" type="text" class="form-control">
 		                          	</div>
 	                          	</div>
 	                          	<div class="col-md-4">
 		                          	<div class="form-group">
-		                              	<label for="strapellidop" class="control-label mb-1">Apellido paterno</label>
-		                              	<input id="strapellidop" th:value="${greet.content}" name="strapellidop" type="text" class="form-control">
+		                              	<label for="apellidoPaterno" class="control-label mb-1">Apellido paterno</label>
+		                              	<input id="apellidoPaterno" th:value="${alumno.apellidoPaterno}" name="apellidoPaterno" type="text" class="form-control">
 		                          	</div>
 		                        </div>
 		                        <div class="col-md-4">
 		                          	<div class="form-group">
-		                              	<label for="strapellidom" class="control-label mb-1">Apellido materno</label>
-		                              	<input id="strapellidom" name="strapellidom" type="text" class="form-control">
+		                              	<label for="apellidoMaterno" class="control-label mb-1">Apellido materno</label>
+		                              	<input id="apellidoMaterno" th:value="${alumno.apellidoMaterno}" name="apellidoMaterno" type="text" class="form-control">
 		                          	</div>
 		                        </div>
                         	</div>
@@ -43,14 +43,14 @@
                         	<div class="row">
                         		<div class="col-md-10">
                         			<div class="form-group">
-			                            <label for="strdireccion" class="control-label mb-1">Dirección</label>
-			                            <input id="strdireccion" name="strdireccion" type="text" class="form-control">
+			                            <label for="direccion" class="control-label mb-1">Dirección</label>
+			                            <input id="direccion" th:value="${alumno.direccion}" name="direccion" type="text" class="form-control">
 			                        </div>
                         		</div>
                         		<div class="col-md-2">
                         			<div class="form-group">
-			                            <label for="strcp" class="control-label mb-1">CP</label>
-			                            <input id="strcp" name="strcp" type="text" class="form-control">
+			                            <label for="codigoPostal" class="control-label mb-1">CP</label>
+			                            <input id="codigoPostal" th:value="${alumno.codigoPostal}" name="codigoPostal" type="text" class="form-control">
 			                        </div>
                         		</div>
                         	</div>
@@ -59,14 +59,14 @@
                         	<div class="row">
                         		<div class="col-md-6">
                         			<div class="form-group">
-			                            <label for="strcorreo" class="control-label mb-1">Correo</label>
-			                            <input id="strcorreo" name="strcorreo" type="email" class="form-control">
+			                            <label for="email" class="control-label mb-1">Correo</label>
+			                            <input id="email" th:value="${alumno.email}" name="email" type="email" class="form-control">
 			                        </div>
                         		</div>
                         		<div class="col-md-6">
                         			<div class="form-group">
-			                            <label for="strtelefono" class="control-label mb-1">Teléfono</label>
-			                            <input id="strtelefono" name="strtelefono" type="text" class="form-control">
+			                            <label for="telefono" class="control-label mb-1">Teléfono</label>
+			                            <input id="telefono" th:value="${alumno.telefono}" name="telefono" type="text" class="form-control">
 			                        </div>
                         		</div>
                         	</div>
@@ -75,14 +75,14 @@
                         	<div class="row">
                         		<div class="col-md-6">
                         			<div class="form-group">
-			                            <label for="strtutor" class="control-label mb-1">Tutor</label>
-			                            <input id="strtutor" name="strtutor" type="text" class="form-control">
+			                            <label for="tutor" class="control-label mb-1">Tutor</label>
+			                            <input id="tutor" th:value="${alumno.tutor}" name="tutor" type="text" class="form-control">
 			                        </div>
                         		</div>
                         		<div class="col-md-6">
                         			<div class="form-group">
-			                            <label for="strtelefonotutor" class="control-label mb-1">Teléfono de tutor</label>
-			                            <input id="strtelefonotutor" name="strtelefonotutor" type="text" class="form-control">
+			                            <label for="telefonoTutor" class="control-label mb-1">Teléfono de tutor</label>
+			                            <input id="telefonoTutor" th:value="${alumno.telefonoTutor}" name="telefonoTutor" type="text" class="form-control">
 			                        </div>
                         		</div>
                         	</div>
