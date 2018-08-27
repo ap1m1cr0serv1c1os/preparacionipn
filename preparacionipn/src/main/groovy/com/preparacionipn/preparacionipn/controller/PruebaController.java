@@ -79,8 +79,13 @@ public class PruebaController {
     }
 	
 	@GetMapping("/admin/cursos")
-	public String getCursoAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
+	public String getCursosAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
         return "administrador/componentes/cursos/index";
+    }
+	
+	@GetMapping("/admin/cursos/edit/{id}")
+	public String getCursosAdmin( @RequestParam(value="_", required=false) String clave, @PathVariable(name = "id") int id, Model model) {
+        return "administrador/componentes/cursos/crud";
     }
 	
 	@GetMapping("/admin/clases")
