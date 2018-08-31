@@ -22,19 +22,47 @@
             <div class="col-md-12">
               <div class="row">
                 <table class="table">
-                  <tbody>
-                    <tr>
+                  <tbody class="lst-cart-details">
+                    <tr data-item-remove="1">
                       <td class="item-detalles"><img style="height:100px; width:100px;" src="https://i.ytimg.com/vi/wmwQSO0Fx9E/maxresdefault.jpg" alt=""></td>
                       <td>
                         <div class="item-bd">
-                          <h3>{{ Nombre curso }}</h3>
+                          <h3>{{ Nombre curso 1 }}</h3>
                           <h5>{{ Nombre profesor}}</h5>
                           <p>{{ Descipción media 200 ctrs. }}</p>
                         </div>
                       </td>
                       <td>
                           <span class="price"><strong><h2>${{ Precio }}</h2></strong></span>
-                          <span class="item-delete"><h4><a href="#">Eliminar</a></h4></span>
+                          <span class="item-delete"><h4><a href="#" data-cart-remove="1">Eliminar</a></h4></span>
+                      </td>
+                    </tr>
+                    <tr data-item-remove="2">
+                      <td class="item-detalles"><img style="height:100px; width:100px;" src="https://i.ytimg.com/vi/wmwQSO0Fx9E/maxresdefault.jpg" alt=""></td>
+                      <td>
+                        <div class="item-bd">
+                          <h3>{{ Nombre curso 2 }}</h3>
+                          <h5>{{ Nombre profesor}}</h5>
+                          <p>{{ Descipción media 200 ctrs. }}</p>
+                        </div>
+                      </td>
+                      <td>
+                          <span class="price"><strong><h2>${{ Precio }}</h2></strong></span>
+                          <span class="item-delete"><h4><a href="#" data-cart-remove="2">Eliminar</a></h4></span>
+                      </td>
+                    </tr>
+                    <tr data-item-remove="3">
+                      <td class="item-detalles"><img style="height:100px; width:100px;" src="https://i.ytimg.com/vi/wmwQSO0Fx9E/maxresdefault.jpg" alt=""></td>
+                      <td>
+                        <div class="item-bd">
+                          <h3>{{ Nombre curso 3 }}</h3>
+                          <h5>{{ Nombre profesor}}</h5>
+                          <p>{{ Descipción media 200 ctrs. }}</p>
+                        </div>
+                      </td>
+                      <td>
+                          <span class="price"><strong><h2>${{ Precio }}</h2></strong></span>
+                          <span class="item-delete"><h4><a href="#" data-cart-remove="3">Eliminar</a></h4></span>
                       </td>
                     </tr>
                   </tbody>

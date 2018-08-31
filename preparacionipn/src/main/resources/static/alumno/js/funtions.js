@@ -3,6 +3,7 @@ $(document).ready(function(){
 	
 	var hamb = $('.hamburger');
 	var header = $('.header');
+	var scroll = $(".scroll");
 	var hambActive = false;
 	var menuActive = false;
 	var ctrl = new ScrollMagic.Controller();
@@ -26,14 +27,18 @@ $(document).ready(function(){
 		if(window.innerWidth < 992){
 			if($(window).scrollTop() > 100){
 				header.addClass('scrolled');
+				scroll.css("display","block");
 			}else{
 				header.removeClass('scrolled');
+				scroll.css("display","none");
 			}
 		}else{
 			if($(window).scrollTop() > 100){
 				header.addClass('scrolled');
+				scroll.css("display","block");
 			}else{
 				header.removeClass('scrolled');
+				scroll.css("display","none");
 			}
 		}
 		if(window.innerWidth > 991 && menuActive){

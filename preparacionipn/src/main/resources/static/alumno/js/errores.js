@@ -5,7 +5,7 @@ var styleerror = {};
 var type = false;
 var mailmesage = {
 	"confemail" : false,
-	"element": false
+	"element" : false
 };
 var lstelements = undefined;
 
@@ -13,20 +13,32 @@ var errors = function(objectConfg) {
 	if (objectConfg != undefined) {
 
 		arraylst = objectConfg.valid != undefined ? objectConfg.valid : [];
-		stylenormal = objectConfg.normalstyle != undefined ? objectConfg.normalstyle : { "border" : "1px solid #eee" };
+		stylenormal = objectConfg.normalstyle != undefined ? objectConfg.normalstyle
+				: {
+					"border" : "1px solid #eee"
+				};
 		type = objectConfg.errors !== undefined ? objectConfg.errors : false;
-		styleerror = objectConfg.errorstyle != undefined ? objectConfg.errorstyle : { "border" : "1px solid red" };
-		mailmesage = objectConfg.otherconf != undefined ? objectConfg.otherconf : { "confemail" : false, "elements": false };
-		lstelements = objectConfg.lstelements != undefined ? objectConfg.lstelements : undefined;
+		styleerror = objectConfg.errorstyle != undefined ? objectConfg.errorstyle
+				: {
+					"border" : "1px solid red"
+				};
+		mailmesage = objectConfg.otherconf != undefined ? objectConfg.otherconf
+				: {
+					"confemail" : false,
+					"elements" : false
+				};
+		lstelements = objectConfg.lstelements != undefined ? objectConfg.lstelements
+				: undefined;
 		var elementsfist;
-		if(lstelements != undefined){
-			jQuery.each(lstelements, function ( key, value ) {
+		if (lstelements != undefined) {
+			jQuery.each(lstelements, function(key, value) {
 				jQuery(value).css(stylenormal);
 				if (type) {
-					jQuery("#err" + jQuery(value).attr("id") ).hide("slow");
+					jQuery("#err" + jQuery(value).attr("id")).hide("slow");
 				}
 				if (mailmesage.confemail) {
-					jQuery("#err-email-" + jQuery(value).attr("id") ).hide("slow");
+					jQuery("#err-email-" + jQuery(value).attr("id")).hide(
+							"slow");
 				}
 			});
 			var validationes = new Validacion(true);
@@ -48,64 +60,76 @@ var errors = function(objectConfg) {
 	return false;
 };
 
-var Validacion = /** @class */ (function() {
+var Validacion = /** @class */
+(function() {
 	function Validacion(isElement) {
-        this.isElement = isElement;
-    }
+		this.isElement = isElement;
+	}
 	Validacion.prototype.getType = function() {
 		var i = 0;
 		var operations = new OperationsValidation();
 		var operationselements = new OperationsValidationElements();
 
 		if (this.isElement) {
-			jQuery.each(lstelements, function (key, value) {
-				var atributoId = jQuery(value).attr("id");
-				switch (jQuery(value).get(0).nodeName) {
-					case "INPUT":{
-						switch (jQuery(value).attr("type")) {
-							case "email":{
-								values[i] = operationselements.getIEmail(value, atributoId);
+			jQuery.each(lstelements,
+					function(key, value) {
+						var atributoId = jQuery(value).attr("id");
+						switch (jQuery(value).get(0).nodeName) {
+						case "INPUT": {
+							switch (jQuery(value).attr("type")) {
+							case "email": {
+								values[i] = operationselements.getIEmail(value,
+										atributoId);
 							}
-              break;
-              case "text":{
-              	values[i] = operationselements.getValueText(value, atributoId);
-              }
-            	break;
+								break;
+							case "text": {
+								values[i] = operationselements.getValueText(
+										value, atributoId);
+							}
+								break;
 							case "tel": {
-								values[i] = operationselements.getValueText(value, type);
+								values[i] = operationselements.getValueText(
+										value, type);
 							}
-							break;
+								break;
 							case "password": {
-								values[i] = operationselements.getValueText(value, type);
+								values[i] = operationselements.getValueText(
+										value, type);
 							}
-							break;
+								break;
 							case "checkbox": {
-								values[i] = jQuery(value).is(":checked") ? true : false;
+								values[i] = jQuery(value).is(":checked") ? true
+										: false;
 							}
-							break;
+								break;
 							case "radio": {
-								values[i] = jQuery(value).is(":checked") ? true : false;
+								values[i] = jQuery(value).is(":checked") ? true
+										: false;
 							}
-							break;
+								break;
 							case "date": {
-								values[i] = operations.getExpresion(jQuery(value).val(), "f");
+								values[i] = operations.getExpresion(jQuery(
+										value).val(), "f");
 							}
+								break;
+							}
+						}
 							break;
-            }
-          }
-          break;
-					case "TEXTAREA":{
-						values[i] = operationselements.getValueText(value, atributoId);
-					}
-					break;
-					case "SELECT":{
-						values[i] = operationselements.getValueSelect(value, atributoId);
-					}
-					break;
-					default: break;
-				}
-				i++;
-			});
+						case "TEXTAREA": {
+							values[i] = operationselements.getValueText(value,
+									atributoId);
+						}
+							break;
+						case "SELECT": {
+							values[i] = operationselements.getValueSelect(
+									value, atributoId);
+						}
+							break;
+						default:
+							break;
+						}
+						i++;
+					});
 		}
 
 		for (var _i = i, arraylst_1 = arraylst; _i < arraylst_1.length; _i++) {
@@ -121,25 +145,28 @@ var Validacion = /** @class */ (function() {
 				case "text": {
 					values[_i] = operations.getValueText(datoItem, type);
 				}
-				break;
+					break;
 				case "tel": {
 					values[_i] = operations.getValueText(datoItem, type);
 				}
-				break;
+					break;
 				case "password": {
 					values[_i] = operations.getValueText(datoItem, type);
 				}
-				break;
+					break;
 				case "checkbox": {
-					values[_i] = jQuery("#" + datoItem).is(":checked") ? true : false;
+					values[_i] = jQuery("#" + datoItem).is(":checked") ? true
+							: false;
 				}
-				break;
+					break;
 				case "radio": {
-					values[_i] = jQuery("#" + datoItem).is(":checked") ? true : false;
+					values[_i] = jQuery("#" + datoItem).is(":checked") ? true
+							: false;
 				}
-				break;
+					break;
 				case "date": {
-					values[_i] = operations.getExpresion(jQuery("#" + datoItem).val(), "f");
+					values[_i] = operations.getExpresion(jQuery("#" + datoItem)
+							.val(), "f");
 				}
 					break;
 				}
@@ -166,7 +193,8 @@ var Validacion = /** @class */ (function() {
 	return Validacion;
 }());
 
-var OperationsValidation = /** @class */ (function() {
+var OperationsValidation = /** @class */
+(function() {
 	function OperationsValidation() {
 	}
 	OperationsValidation.prototype.getIEmail = function(datoItem, type,
@@ -204,12 +232,14 @@ var OperationsValidation = /** @class */ (function() {
 			}
 			return false;
 		} else if (jQuery.trim(type) === "c") {
-			if (!/^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,3})$/.exec(texto)) {
+			if (!/^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,3})$/
+					.exec(texto)) {
 				return false;
 			}
 			return true;
-		}	else if (jQuery.trim(type) === "f"){
-			if(!/^(19|20)[0-9]{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/.exec( texto )){
+		} else if (jQuery.trim(type) === "f") {
+			if (!/^(19|20)[0-9]{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/
+					.exec(texto)) {
 				return false;
 			}
 			return true;
@@ -240,54 +270,57 @@ var OperationsValidation = /** @class */ (function() {
 	return OperationsValidation;
 }());
 
-var OperationsValidationElements = /** @class */ (function () {
-    function OperationsValidationElements() {
-    }
-		var operations = new OperationsValidation();
-    OperationsValidationElements.prototype.getIEmail = function (value, atributoId) {
-        var valoritem = jQuery(value).val();
-        if (valoritem === "") {
-            jQuery(value).css(styleerror);
-            if (type) {
-                jQuery("#err" + atributoId).show("slow");
-            }
-            return false;
-        }
-        if (operations.getExpresion(valoritem, "c") === false) {
-            jQuery(value).css(styleerror);
-            if (mailmesage.confemail) {
-                jQuery("#err-email-" + atributoId).show("slow");
-            }
-            else if (type) {
-                jQuery("#err" + atributoId).show("slow");
-            }
-            return false;
-        }
-        return true;
-    };
-    OperationsValidationElements.prototype.getValueText = function (value, atributoId) {
-        var valoritem = jQuery(value).val();
-        if (valoritem === "") {
-            jQuery(value).css(styleerror);
-            if (type) {
-                jQuery("#err" + atributoId).show("slow");
-            }
-            return false;
-        }
-        return true;
-    };
-    OperationsValidationElements.prototype.getValueSelect = function (value, atributoId) {
-        var valoritem = jQuery(value).val();
-        if (valoritem === "" || valoritem === "0" || valoritem === undefined) {
-            jQuery(value).css(styleerror);
-            if (type) {
-                jQuery("#err" + atributoId).show("slow");
-            }
-            return false;
-        }
-        return true;
-    };
-    return OperationsValidationElements;
+var OperationsValidationElements = /** @class */
+(function() {
+	function OperationsValidationElements() {
+	}
+	var operations = new OperationsValidation();
+	OperationsValidationElements.prototype.getIEmail = function(value,
+			atributoId) {
+		var valoritem = jQuery(value).val();
+		if (valoritem === "") {
+			jQuery(value).css(styleerror);
+			if (type) {
+				jQuery("#err" + atributoId).show("slow");
+			}
+			return false;
+		}
+		if (operations.getExpresion(valoritem, "c") === false) {
+			jQuery(value).css(styleerror);
+			if (mailmesage.confemail) {
+				jQuery("#err-email-" + atributoId).show("slow");
+			} else if (type) {
+				jQuery("#err" + atributoId).show("slow");
+			}
+			return false;
+		}
+		return true;
+	};
+	OperationsValidationElements.prototype.getValueText = function(value,
+			atributoId) {
+		var valoritem = jQuery(value).val();
+		if (valoritem === "") {
+			jQuery(value).css(styleerror);
+			if (type) {
+				jQuery("#err" + atributoId).show("slow");
+			}
+			return false;
+		}
+		return true;
+	};
+	OperationsValidationElements.prototype.getValueSelect = function(value,
+			atributoId) {
+		var valoritem = jQuery(value).val();
+		if (valoritem === "" || valoritem === "0" || valoritem === undefined) {
+			jQuery(value).css(styleerror);
+			if (type) {
+				jQuery("#err" + atributoId).show("slow");
+			}
+			return false;
+		}
+		return true;
+	};
+	return OperationsValidationElements;
 }());
 
 var clear = function(arraylst) {
@@ -295,7 +328,19 @@ var clear = function(arraylst) {
 		var itemClear = arraylst_3[_i];
 		switch (jQuery("#" + itemClear).get(0).nodeName) {
 		case "INPUT":
-			jQuery("#" + itemClear).val("");
+			switch (jQuery("#" + itemClear).attr("type")) {
+			case "checkbox": {
+				jQuery("#" + itemClear).prop('checked', false);
+			}
+				break;
+			case "radio": {
+				jQuery("#" + itemClear).prop('checked', false);
+			}
+				break;
+			default:
+				jQuery("#" + itemClear).val("");
+				break;
+			}
 			break;
 		case "SELECT":
 			jQuery("#" + itemClear)[0].selectedIndex = 0;
@@ -308,19 +353,21 @@ var clear = function(arraylst) {
 };
 
 var clearElements = function(lstements) {
-	jQuery.each(lstements, function ( key, value ) {
-		switch ( jQuery(value).get(0).nodeName ){
+	jQuery.each(lstements, function(key, value) {
+		switch (jQuery(value).get(0).nodeName) {
 		case "INPUT":
 			switch (jQuery(value).attr("type")) {
-				case "checkbox": {
-					jQuery(value).prop('checked', false);
-				}
+			case "checkbox": {
+				jQuery(value).prop('checked', false);
+			}
 				break;
-				case "radio": {
-					jQuery(value).prop('checked', false);
-				}
+			case "radio": {
+				jQuery(value).prop('checked', false);
+			}
 				break;
-				default: jQuery(value).val(""); break;
+			default:
+				jQuery(value).val("");
+				break;
 			}
 			break;
 		case "SELECT":
@@ -333,38 +380,47 @@ var clearElements = function(lstements) {
 	});
 }
 
-var convertToClass = function(classtoConvert, objeto){
-	jQuery.each(objeto, function ( key, value ) {
+var convertToClass = function(classtoConvert, objeto) {
+	jQuery.each(objeto, function(key, value) {
 		classtoConvert[key] = value;
 	});
 	return classtoConvert;
 }
 
-var convertToObject = function(lstements){
-	var objetoCreado={};
-	jQuery.each(lstements, function ( key, value ) {
-		switch ( jQuery(value).get(0).nodeName ){
-		case "INPUT":
-			switch (jQuery(value).attr("type")) {
-				case "checkbox": {
-					objetoCreado[jQuery(value).attr("id")] = jQuery(value).is(":checked") ? true : false;
-				}
-				break;
-				case "radio": {
-					objetoCreado[jQuery(value).attr("id")] = jQuery(value).is(":checked") ? true : false;
-				}
-				break;
-				default: objetoCreado[jQuery(value).attr("id")] = jQuery(value).val(); break;
-			}
-			break;
-		case "SELECT":
-			objetoCreado[jQuery(value).attr("id")] = jQuery(value).selectedIndex;
-			break;
-		case "TEXTAREA":
-			objetoCreado[jQuery(value).attr("id")] = jQuery(value).val();
-			break;
-		}
-	});
+var convertToObject = function(lstements) {
+	var objetoCreado = {};
+	jQuery
+			.each(
+					lstements,
+					function(key, value) {
+						switch (jQuery(value).get(0).nodeName) {
+						case "INPUT":
+							switch (jQuery(value).attr("type")) {
+							case "checkbox": {
+								objetoCreado[jQuery(value).attr("id")] = jQuery(
+										value).is(":checked") ? true : false;
+							}
+								break;
+							case "radio": {
+								objetoCreado[jQuery(value).attr("id")] = jQuery(
+										value).is(":checked") ? true : false;
+							}
+								break;
+							default:
+								objetoCreado[jQuery(value).attr("id")] = jQuery(
+										value).val();
+								break;
+							}
+							break;
+						case "SELECT":
+							objetoCreado[jQuery(value).attr("id")] = jQuery(value).selectedIndex;
+							break;
+						case "TEXTAREA":
+							objetoCreado[jQuery(value).attr("id")] = jQuery(
+									value).val();
+							break;
+						}
+					});
 	return objetoCreado;
 }
 
