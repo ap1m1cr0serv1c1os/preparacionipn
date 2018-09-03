@@ -11,6 +11,7 @@ $(document).ready(function(){
 	});
 	$(".cart").text(lstCursoCart[0] == "" ? "0" : lstCursoCart.length);
 	
+	
 	$("a[data-cart-remove]").click(function(){
 		var idHiper = $(this).attr("data-cart-remove");
 		$(".lst-cart-details").find("tr").filter(function(item){
@@ -48,6 +49,13 @@ $(document).ready(function(){
 			$(".cart").text("1");
 			document.cookie = "_lstproduct=" + idProduct + ";" + getExpiresCookie() + ";path=/";
 		}
+		
+		let image=new Element('div',{class:'modal-window-image'},["<svg viewBox=\"0 0 32 32\" style=\"fill:#48DB71\"><path d=\"M1 14 L5 10 L13 18 L27 4 L31 8 L13 26 z\"></path></svg>"]);
+		let title=new Element('h1',{class:'modal-window-title'},[ $(".tit").text() ]);
+		let text=new Element('p',{class:'modal-window-text'},['Tu curso se agregó correctamente a tu carrito de compras.']);
+		let e = new Modal('div',{class:'modal-window-content'},[image,title,text]);
+		document.body.appendChild(e);
+		
 	});
 	
 	function getExpiresCookie(){
@@ -72,4 +80,58 @@ $(document).ready(function(){
         return "";
     }
 	
+	$("a[data-href-card-page]").click(function(){
+		var urlDetails = $.param( setObjectCookie(), true );
+		if(urlDetails != "details0=")
+			location.href="/detalles?" + $.param( setObjectCookie(), true );
+		else
+			location.href="/detalles?";
+	});
+	
+	function setObjectCookie(){
+		var lstActual = getCookie( "_lstproduct" ).split(",");
+		var objCookyes = new Object();
+		var i = 0;
+		$.each(lstActual, function(k,v){
+			objCookyes["details"+i] = v;
+			i++;
+		});
+		return objCookyes;
+	}
+	
+	class Element{
+		constructor(type,attributes,children){
+			return this.createCustomElement(type,attributes,children);
+		}
+		createCustomElement(type,attributes,children){
+			let element=document.createElement(type);
+			if(children !== undefined) this.addChildren(element,children);
+			this.addAttributes(element,attributes);
+			return element;
+		}
+		addAttributes(element,attrObj){
+			for(let attr in attrObj){
+				if(attrObj.hasOwnProperty(attr)) element.setAttribute(attr,attrObj[attr]);
+			}
+		}
+		addChildren(element,children){
+			children.forEach(el =>{
+				if(el.nodeType== 1 || el.nodetype==11) element.appendChild(el);
+				else element.innerHTML+=el
+			});
+		}
+	}
+	class Modal extends Element{
+		constructor(type,attributes,children){
+			super('div',{class:'modal-window'},[]);
+			Element.prototype.addChildren(this,[Element.prototype.createCustomElement(type,attributes,children)]);
+			console.log(this)
+			this.addEventListener('click',function(e){
+				if(e.target === this) Modal.prototype.closeModal.call(this);
+			});
+		}
+		closeModal(){
+			document.body.removeChild(this);
+		}
+	}
 });

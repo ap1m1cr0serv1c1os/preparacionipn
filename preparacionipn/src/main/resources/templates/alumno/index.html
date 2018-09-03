@@ -3,6 +3,7 @@
 	<title>Inicio</title>
 	<meta charset="utf-8">
 	<head th:replace="alumno/includes/heads :: header"></head>
+	<link rel="stylesheet" type="text/css" th:href="@{/alumno/css/errores.css}">
 	<body>
 		<div class="container-pz">
 			<header th:replace="alumno/includes/header :: header-menu"></header>
@@ -124,7 +125,7 @@
 												</div>
 												<div class="curso-body">
 													<p class="curso-profesor">{{ Nombre profesor }}</p>
-													<h3 class="curso-nombre"><a href="#">{{ Nombre curso }}</a></h3>
+													<h3 class="curso-nombre tit"><a href="#">{{ Nombre curso }}</a></h3>
 													<h4 class="curso-precio">${{ Precio }}</h4>
 													<div class="curso-rating">
 														<i class="fa fa-star"></i>
@@ -135,7 +136,7 @@
 													</div>
 												</div>
 												<div class="add-to-cart">
-													<button class="add-to-cart-btn"  data-cart-add="5"><i class="fa fa-shopping-cart"></i> Comprar</button>
+													<button id="btn" class="add-to-cart-btn js-open is-active"  data-cart-add="5" data-modal="modal-cart"><i class="fa fa-shopping-cart"></i> Comprar</button>
 												</div>
 											</div>
 										</div>
@@ -161,23 +162,8 @@
         		<span class="arrow-up fas fa-angle-up"></span>
     		</button>
 		</div>
+		<div id="modal-cart"></div>
 		<div th:replace="alumno/includes/script :: scripts"></div>
 		<script th:src="@{/alumno/js/funtions.js}"></script>
-		<script type="text/javascript">
-		$(".add-to-cart-btn").click(function(){
-			addProducto( $(".curso-precio").val(), $(".curso-nombre").val() );
-		});
-		function addProducto(producto, precio){
-			sessionStorage.setItem(producto,precio);
-			mostrarDatos(producto);
-		}
-		function mostrarDatos(){
-			for(var i = 0; i < sessionStorage.length; i++){
-				var producto = sessionStorage.key(i);
-				var precio = sessionStorage.getItem( producto );
-				console.log('<div>' + producto + ' - ' + precio + '</div>');
-			}
-		}
-		</script>
 	</body>
 </html>

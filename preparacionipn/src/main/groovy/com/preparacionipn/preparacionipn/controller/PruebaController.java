@@ -1,5 +1,9 @@
 package com.preparacionipn.preparacionipn.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -166,7 +170,10 @@ public class PruebaController {
     }
 	
 	@GetMapping("/detalles")
-    public String getDetallesPago(Model model) {
+    public String getDetallesPago(@RequestParam(defaultValue="0") Map<String,String> lstproduct, Model model) {
+		List<Integer> lstIdes = new ArrayList<>();
+		lstproduct.forEach((k,v)-> lstIdes.add( Integer.valueOf(v) ) );
+		model.addAttribute("listaIdes", lstIdes);
         return "alumno/detalles-pago";
     }
 	
