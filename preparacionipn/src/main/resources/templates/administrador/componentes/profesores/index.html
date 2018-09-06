@@ -8,7 +8,8 @@
 						<h2 class="title-1">Profesores</h2>
 						<button class="au-btn au-btn-icon au-btn--blue"
 							onclick="getItem(this);" data-href-to-menu="index"
-							data-href-to-view="/admin/profesores/edit">
+							data-href-to-view="/admin/profesores/edit" 
+							data-href-to-view-data="0">
 							<i class="zmdi zmdi-plus"></i>Agregar nuevo
 						</button>
 					</div>
@@ -41,15 +42,17 @@
 									<th></th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody th:each="profesor : ${lstProfesor}">
 								<tr>
-									<td>Fernando</td>
-									<td>Acosta Juarez</td>
-									<td>Calle No. 92</td>
-									<td>fernando@gmail.com</td>
+									<td th:text="${profesor.nombre}"></td>
+									<td th:text="${profesor.apellidoPaterno}"></td>
+									<td th:text="${profesor.apellidoMaterno}"></td>
+									<td th:text="${profesor.email}"></td>
 									<td>
 										<button class="btn btn-warning" onclick="getItem(this);"
-											data-href-to-view="/admin/estudiantes/edit" data-href-to-view-data="1"
+											data-href-to-view="/admin/profesores/edit" th:data-href-to-view-data="${profesor.idProfesor}"
+											data-href="Profesores"
+											data-href-to-menu="Profesores"
 											data-toggle="tooltip" data-placement="top">
 											<i class="zmdi zmdi-search"></i>
 										</button>

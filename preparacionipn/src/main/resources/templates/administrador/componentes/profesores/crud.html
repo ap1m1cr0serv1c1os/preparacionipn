@@ -5,7 +5,7 @@
       <div class="row">
           <div class="col-md-12">
               <div class="overview-wrap">
-                  <button class="au-btn au-btn-icon au-btn--blue" data-href="estudiantes" onclick="getItem(this);" data-href-to-menu="estudiantes"  data-href-to-view="/admin/estudiantes">
+                  <button class="au-btn au-btn-icon au-btn--blue" data-href="Profesores" onclick="getItem(this);" data-href-to-menu="Profesores"  data-href-to-view="/admin/profesores/">
                     <i class="fas fa-chevron-left"></i></button>
               </div>
           </div>
@@ -13,79 +13,58 @@
       <div class="row m-t-30">
           <div class="col-md-12">
             <div class="card">
-                  <div class="card-header">Detalles de {{Nombre del alumno}} </div>
+                  <div class="card-header" th:text="${profesor.nombre != null} ? ${'Detalles de ' + profesor.nombre} : ${'Nuevo profesor'}"></div>
                   <div class="card-body">
-                    <form action="" method="post" novalidate="novalidate" class="valid-errors">
-                      <div class="row">
-                        <div class="col-md-12">
-                        	<div class="row">
-                        		<div class="col-md-4">
-		                        	<div class="form-group">
-		                              	<label for="strnombre" class="control-label mb-1">Nombre</label>
-		                              	<input id="strnombre" th:value="${greet.id}" name="strnombre" type="text" class="form-control">
-		                          	</div>
-	                          	</div>
-	                          	<div class="col-md-4">
-		                          	<div class="form-group">
-		                              	<label for="strapellidop" class="control-label mb-1">Apellido paterno</label>
-		                              	<input id="strapellidop" th:value="${greet.content}" name="strapellidop" type="text" class="form-control">
-		                          	</div>
-		                        </div>
-		                        <div class="col-md-4">
-		                          	<div class="form-group">
-		                              	<label for="strapellidom" class="control-label mb-1">Apellido materno</label>
-		                              	<input id="strapellidom" name="strapellidom" type="text" class="form-control">
-		                          	</div>
-		                        </div>
-                        	</div>
+                    <form class="valid-errors">
+                    	<div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="nombre" class="control-label mb-1">Nombre</label>
+                              <input id="nombre" th:value="${profesor.nombre != null} ? ${profesor.nombre} : ${''}" name="nombre" type="text" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="apellidoPaterno" class="control-label mb-1">Apellido paterno</label>
+                              <input id="apellidoPaterno" name="apellidoPaterno" type="text" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="apellidoMaterno" class="control-label mb-1">Apellido materno</label>
+                              <input id="apellidoMaterno" name="apellidoMaterno" type="text" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="email" class="control-label mb-1">Correo</label>
+                              <input id="email" name="email" type="text" class="form-control">
+                          </div>
                         </div>
-                        <div class="col-md-12">
-                        	<div class="row">
-                        		<div class="col-md-10">
-                        			<div class="form-group">
-			                            <label for="strdireccion" class="control-label mb-1">Dirección</label>
-			                            <input id="strdireccion" name="strdireccion" type="text" class="form-control">
-			                        </div>
-                        		</div>
-                        		<div class="col-md-2">
-                        			<div class="form-group">
-			                            <label for="strcp" class="control-label mb-1">CP</label>
-			                            <input id="strcp" name="strcp" type="text" class="form-control">
-			                        </div>
-                        		</div>
-                        	</div>
-                        </div>
-                        <div class="col-md-12">
-                        	<div class="row">
-                        		<div class="col-md-6">
-                        			<div class="form-group">
-			                            <label for="strcorreo" class="control-label mb-1">Correo</label>
-			                            <input id="strcorreo" name="strcorreo" type="email" class="form-control">
-			                        </div>
-                        		</div>
-                        		<div class="col-md-6">
-                        			<div class="form-group">
-			                            <label for="strtelefono" class="control-label mb-1">Teléfono</label>
-			                            <input id="strtelefono" name="strtelefono" type="text" class="form-control">
-			                        </div>
-                        		</div>
-                        	</div>
-                        </div>
-                        <div class="col-md-12">
-                        	<div class="row">
-                        		<div class="col-md-6">
-                        			<div class="form-group">
-			                            <label for="strtutor" class="control-label mb-1">Tutor</label>
-			                            <input id="strtutor" name="strtutor" type="text" class="form-control">
-			                        </div>
-                        		</div>
-                        		<div class="col-md-6">
-                        			<div class="form-group">
-			                            <label for="strtelefonotutor" class="control-label mb-1">Teléfono de tutor</label>
-			                            <input id="strtelefonotutor" name="strtelefonotutor" type="text" class="form-control">
-			                        </div>
-                        		</div>
-                        	</div>
+                        <div class="col-md-6">
+                        	<div class="form-group">
+                              <label for="password" class="control-label mb-1">Contraseña</label>
+                              <input id="password" autocomplete="cc-csc" name="password" type="password" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="passwordre" class="control-label mb-1">repetir contraseña</label>
+                              <input id="passwordre" autocomplete="cc-csc" name="passwordre" type="password" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="registrar" class="control-label mb-1">Registrar</label>
+                              <input id="registrar" name="registrar" type="checkbox">
+                          </div>
+                          <div class="form-group">
+                              <label for="eliminar" class="control-label mb-1">Eliminar</label>
+                              <input id="eliminar" name="eliminar" type="checkbox">
+                          </div>
+                          <div class="form-group">
+                              <label for="actualizar" class="control-label mb-1">Actualizar</label>
+                              <input id="actualizar" name="actualizar" type="checkbox">
+                          </div>
+                          <div>
+                              <input id="editar-button" onclick="sendData(this);" 
+                              data-onsend='["editar-button","passwordre"]' 
+                              data-onvalid='["editar-button","chkregistrar","chkeliminar","chkactualizar"]'  
+                              data-onclear="true" 
+                              data-href-url="/admin/profesores" 
+                              th:data-href-method="${method}" 
+                              type="button" class="btn btn-lg btn-info btn-block" th:value="${accion}">
+                          </div>
                         </div>
                       </div>
                     </form>

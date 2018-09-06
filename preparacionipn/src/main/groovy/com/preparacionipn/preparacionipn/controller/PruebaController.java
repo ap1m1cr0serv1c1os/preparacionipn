@@ -61,22 +61,6 @@ public class PruebaController {
         return "administrador/componentes/estudiantes/detalles";
     }
 	
-	@GetMapping("/admin/profesores")
-	public String getProfesoresAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
-        return "administrador/componentes/profesores/index";
-    }
-	
-	@GetMapping("/admin/profesores/edit/{id}")
-    public String getProfesorAdmin(
-    		@RequestParam(value="_", required=false) String clave, 
-    		@PathVariable(name = "id") int id, Model model) {
-	    Greeting greet = new Greeting();
-	    greet.setId( id );
-	    greet.setContent("Un titulo");
-	    model.addAttribute("greet", greet);
-        return "administrador/componentes/profesores/crud";
-    }
-	
 	@GetMapping("/admin/platicas")
 	public String getPlaticasAdmin(@RequestParam(value="_", required=false) String clave, Model model) {
         return "administrador/componentes/platicas/index";
