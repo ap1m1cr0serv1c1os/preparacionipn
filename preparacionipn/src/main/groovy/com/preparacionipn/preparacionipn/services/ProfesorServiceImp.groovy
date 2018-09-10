@@ -14,11 +14,14 @@ class ProfesorServiceImp {
 	def ProfesorRepository profesorRepository
 	
 	def Optional<Profesor> getProfesorById(Integer id) {
-		//Optional<String> idOption = Optional.of(id);
 		return profesorRepository.findById(id)
 	}
 	
 	def List<Profesor> getProfesorAll(){
+		return profesorRepository.findAll()
+	}
+	
+	def List<Profesor> getProfesorAllLike(Object value){
 		return profesorRepository.findAll()
 	}
 	

@@ -315,3 +315,58 @@ function getNumbers(numberf,numbers, numbert){
 		}
 	}, 30);
 }
+
+$("#strcp").keypress(function(){
+	if ($(this).val().length != 0)
+		sendAjax( $(this).val() );
+});
+
+function sendAjax( value ){
+	$.ajax({
+		type: "get",
+		url: "https://api-codigos-postales.herokuapp.com/v2/buscar",
+		data: { codigo_postal: value },
+		success: function(response){
+			$.get(
+				"https://api-codigos-postales.herokuapp.com/v2/codigo_postal/" + response.codigos_postales[0],
+				function( objeto ){
+					sendDataCode( objeto );
+				}
+			);
+		},
+		error: function ( XMLHttpRequest, textStatus, errorthrows ){
+			alert( getCodeStatus( XMLHttpRequest ) );
+		}
+	});
+}
+
+function sendDataCode( objeto ){
+	$("#strEstado").val( objeto.estado );
+	$("#strMunicipio").val( objeto.municipio );
+	var select = document.getElementById("strColonia");
+	while (select.firstChild) {
+		select.removeChild(select.firstChild);
+	}
+	$.each(objeto.colonias, function( k, v ){
+		var option = document.createElement("option");
+		option.text = v;
+		select.appendChild( option );
+	});
+}
+
+function getCodeStatus( jqXHR ){
+	if (jqXHR.status === 0)
+	    return 'Error de conexióm.';
+	else if (jqXHR.status == 404)
+		return 'Página no encontrada.';
+	else if (jqXHR.status == 500)
+		return 'Error interno en servidor.';
+	else if (textStatus === 'parsererror')
+		return 'El análisis JSON solicitado fracasó.';
+	else if (textStatus === 'timeout')
+		return 'Tiempo de espera terminado.';
+	else if (textStatus === 'abort')
+		return 'Solicitud ajax cancelada.';
+	else
+		return 'Error desconocido: ' + jqXHR.responseText;
+}
